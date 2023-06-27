@@ -1,0 +1,6 @@
+[core]
+title = "Create an Orthographic Camera"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples for creating an orthographic camera prim."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "camera", "UsdGeom", "Orthographic"]
