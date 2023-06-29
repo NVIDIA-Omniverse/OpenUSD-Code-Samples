@@ -64,8 +64,8 @@ def parse_python(python_file_path):
         if isinstance(obj, ast.FunctionDef) and current_block_code_end is None:
             last_body = obj.body[-1]
             while isinstance (last_body,(ast.For,ast.While,ast.If)):
-                last_body = last_body.Body[-1]
-            current_block_code_end = last_body.lineno
+                last_body = last_body.body[-1]
+            current_block_code_end = last_body.end_lineno
             current_block["code"] = "\n".join(content_lines[current_block_code_start:current_block_code_end])
             blocks.append(current_block)
 
@@ -81,7 +81,6 @@ def parse_usd_py(doc: RstCloth, sample_source_dir):
         return
     logger.info("Parsing usd.py")
     content = parse_python(usd_py_file)
-    print(content)
     doc.h2("USD Python API")
     doc.content(content["module_docstring"])
     doc.newline()
@@ -98,7 +97,6 @@ def parse_kit_commands(doc: RstCloth, sample_source_dir):
         return
     logger.info("Parsing kit_commands.py")
     content = parse_python(kit_cmd_py_file)
-    print(content)
     doc.h2("Omniverse Kit Commands")
     doc.content(content["module_docstring"])
     doc.newline()
