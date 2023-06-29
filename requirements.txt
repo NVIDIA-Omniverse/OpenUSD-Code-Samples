@@ -1,0 +1,2 @@
+rstcloth==0.5.4
+mdToRst==1.1.0

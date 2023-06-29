@@ -1,7 +1,14 @@
 """
-
+This is the module docstring that you can use for more info about this sample flavor.
 """
 
+"""
+Hi thisdfasdf
+adsfkadsflksfd 
+asdfklsdf
+"""
+
+import pxr
 from pxr import Sdf, Usd, UsdGeom
 
 def create_orthographic_camera(stage: Usd.Stage, prim_path: str="/World/MyOrthoCam"):
