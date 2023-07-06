@@ -13,3 +13,16 @@ def create_ortho_camera(prim_path: str="/World/MyOrthoCam"):
         prim_path=prim_path,
         attributes={"projection": UsdGeom.Tokens.orthographic}
     )
+
+# Full Usage
+import omni.usd
+
+path = "/World/MyOrthoCam"
+create_ortho_camera(path)
+
+# Check that the camera was created
+stage = omni.usd.get_context().get_stage()
+prim = stage.GetPrimAtPath(path)
+assert(prim.IsValid())
+# TODO: Assert Type
+# TODO: Assert Projection Attr value

@@ -4,6 +4,11 @@ Common code snippets for OpenUSD
 - usd
 - kit_commands
 - omni_usd
+- usdrt
+
+# Ideas
+## Google Collab so you can run in browser
+https://github.com/NVIDIA-Omniverse/USD-Tutorials-And-Examples
 
 # Repo Format
 
@@ -42,7 +47,7 @@ Common code snippets for OpenUSD
 - If we do RST, there would be plenty of examples in the repo to learn RST.
 
 ## Function-wrapped vs Script-like
-### Function-wrapped
+### Function-wrapped with Full Usage
 ```python
 from pxr import Usd, UsdGeom, Gf
 
@@ -50,7 +55,13 @@ def compute_bbox_with_cache(cache: UsdGeom.BBoxCache, prim: Usd.Prim) -> Gf.Rang
     bound = cache.ComputeWorldBound(prim)
     bound_range = bound.ComputeAlignedBox()
     return bound_range
+
+# Full Usage
+stage = Usd.Stage.CreateNew(...)
+...
+stage.Export()
 ```
+
 - Easily testable
 - No ambiguity for variable types
 - Verbose

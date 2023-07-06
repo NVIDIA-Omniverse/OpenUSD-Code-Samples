@@ -1,1 +1,0 @@
-This is a paragraph before var1

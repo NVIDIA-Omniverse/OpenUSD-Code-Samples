@@ -1,13 +1,3 @@
-"""
-This is the module docstring that you can use for more info about this sample flavor.
-"""
-
-"""
-Hi thisdfasdf
-adsfkadsflksfd 
-"""
-
-import pxr
 from pxr import Sdf, Usd, UsdGeom
 
 def create_orthographic_camera(stage: Usd.Stage, prim_path: str="/World/MyOrthoCam"):
@@ -20,3 +10,16 @@ def create_orthographic_camera(stage: Usd.Stage, prim_path: str="/World/MyOrthoC
     camera_path = Sdf.Path(prim_path)
     usd_camera = UsdGeom.Camera.Define(stage, camera_path)
     usd_camera.CreateProjectionAttr().Set(UsdGeom.Tokens.orthographic)
+
+# Full Usage
+path = "/World/MyOrthoCam"
+stage = Usd.Stage.CreateNew('HelloWorld.usda')
+create_orthographic_camera(stage, path)
+# TODO: should we save the stage?
+stage.GetRootLayer().Save()
+
+# Check that the camera was created
+prim = stage.GetPrimAtPath(path)
+assert(prim.IsValid())
+# TODO: Assert Type
+# TODO: Assert Projection Attr value
