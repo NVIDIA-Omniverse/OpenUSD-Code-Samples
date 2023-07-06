@@ -5,7 +5,6 @@ This is the module docstring that you can use for more info about this sample fl
 """
 Hi thisdfasdf
 adsfkadsflksfd 
-asdfklsdf
 """
 
 import pxr

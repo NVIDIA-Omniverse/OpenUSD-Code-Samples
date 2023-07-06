@@ -1,0 +1,1 @@
+This is a paragraph after the code snippet
