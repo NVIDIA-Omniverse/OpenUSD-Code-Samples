@@ -1,0 +1,6 @@
+[core]
+title = "Create a mesh prim and bind a material."
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples showing how to create a material mesh prim."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "world space", "world", "transforms", "omni.usd", "get_world_transform_matrix", "ComputeLocalToWorldTransform", "GetLocalToWorldTransform"]

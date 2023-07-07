@@ -6,6 +6,17 @@ Common code snippets for OpenUSD
 - omni_usd
 - usdrt
 
+## Getting Started
+
+```console
+git clone https://github.com/NVIDIA-Omniverse/OpenUSD-Code-Samples
+cd OpenUSD-Code-Samples
+poetry install
+poetry run create-material-mesh
+```
+
+Install poetry at <https://python-poetry.org/>
+
 # Ideas
 ## Google Collab so you can run in browser
 https://github.com/NVIDIA-Omniverse/USD-Tutorials-And-Examples

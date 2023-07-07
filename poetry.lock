@@ -1,0 +1,28 @@
+[[package]]
+name = "usd-core"
+version = "22.11"
+description = "Pixar's Universal Scene Description library"
+category = "main"
+optional = false
+python-versions = ">=3.6, <3.10"
+
+[metadata]
+lock-version = "1.1"
+python-versions = ">=3.6, <3.10"
+content-hash = "ca7ab255c69c040c273aa5278b40d143ecd68bb7445c54c5b0cd1dbc08c0a7dd"
+
+[metadata.files]
+usd-core = [
+    {file = "usd_core-22.11-cp36-none-macosx_10_9_x86_64.whl", hash = "sha256:e19efa4b656dc5fee5d046ab3dc964a7ce82c96711e0f9bc9174deec7128c628"},
+    {file = "usd_core-22.11-cp36-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6efc59bb989678255f48ae4bac299338e3e550053b820128f3560a826e2dc4a6"},
+    {file = "usd_core-22.11-cp36-none-win_amd64.whl", hash = "sha256:eee704495283cb03a517f4610fc98bb655b7694fe5db356a821ac0c66294fafe"},
+    {file = "usd_core-22.11-cp37-none-macosx_10_9_x86_64.whl", hash = "sha256:d3b9c80cfabdb818f9009b7a364ba3b7bd852b93d9de603b9d93a36b3c0a31ac"},
+    {file = "usd_core-22.11-cp37-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6465132cea8293a3ba3f987c964710f0c072b3078006be97e6ce5b61895d9ff5"},
+    {file = "usd_core-22.11-cp37-none-win_amd64.whl", hash = "sha256:8757028559fc42818b6b7c248fcd2f9ab6325c98aabd8ee7f64afe7b6f888af1"},
+    {file = "usd_core-22.11-cp38-none-macosx_10_9_x86_64.whl", hash = "sha256:eb03960085594548067af1f1db6bd12c1f3f069ca36813f2d9a996982dd5e70d"},
+    {file = "usd_core-22.11-cp38-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1ef7914e5af477af66fd498e167ee3118dac3f70a34f518cfce7cb9a016933dd"},
+    {file = "usd_core-22.11-cp38-none-win_amd64.whl", hash = "sha256:ffaade3ff929497a6526c2f9c1737b00abe75e4ad1d704bf919f77e1b187fc1d"},
+    {file = "usd_core-22.11-cp39-none-macosx_10_9_x86_64.whl", hash = "sha256:d1f153ac926504083e7f7df402f787e1dc2993fef274c929422daa0ae0220b19"},
+    {file = "usd_core-22.11-cp39-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f1fe9fa338623ae55eb9751474de6b55f5e092bcc743a64360c247c8401c3178"},
+    {file = "usd_core-22.11-cp39-none-win_amd64.whl", hash = "sha256:f1ce89a8b9b1ec37227c77238fefa64732294be72f8d044497adc37a809dafa6"},
+]

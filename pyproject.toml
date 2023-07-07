@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "openusd-code-samples"
+version = "0.1.0"
+description = ""
+authors = []
+readme = "README.md"
+packages = [{include = "source"}]
+
+[tool.poetry.dependencies]
+python = ">=3.6, <3.10"
+usd-core = "^22.11"
+
+[tool.poetry.dev-dependencies]
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+create-material-mesh = "source.create-material-mesh.main:run_usda"
