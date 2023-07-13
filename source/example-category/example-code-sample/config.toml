@@ -1,0 +1,6 @@
+[core]
+title = "My Code Example Code Sample"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code sample to show how to contribute."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "example"]

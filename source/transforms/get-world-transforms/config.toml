@@ -1,6 +1,0 @@
-[core]
-title = "Get the World Space Transforms for a Prim"
-
-[metadata]
-description = "Universal Scene Description (OpenUSD) code samples showing how to get the world space transforms for a prim."
-keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "world space", "world", "transforms", "omni.usd", "get_world_transform_matrix", "ComputeLocalToWorldTransform", "GetLocalToWorldTransform"]
