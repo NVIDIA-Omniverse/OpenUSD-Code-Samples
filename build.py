@@ -2,7 +2,9 @@ import argparse
 import ast
 import logging
 from pathlib import Path
-import tomllib
+import toml
+import os
+import shutil
 
 from rstcloth import RstCloth
 from md_to_rst import convertMarkdownToRst
@@ -19,93 +21,58 @@ def main():
     for config_file in SOURCE_DIR.rglob("config.toml"):
         logger.info(f"Converting {config_file.parent.name}")
         sample_source_dir = config_file.parent
-        sample_output_dir = BUILD_DIR / sample_source_dir.parent.relative_to(SOURCE_DIR)
+        sample_output_dir = BUILD_DIR / sample_source_dir.parent.relative_to(SOURCE_DIR)  / f"{config_file.parent.name}"
         sample_rst_out = sample_output_dir / f"{config_file.parent.name}.rst"
         with open(config_file) as f:
             content = f.read()
-            config = tomllib.loads(content)
+            config = toml.loads(content)
+            
+        if os.path.exists(sample_output_dir):
+            #logger.info(f"Deleting: {sample_output_dir}")
+            shutil.rmtree(sample_output_dir)
+
         sample_output_dir.mkdir(exist_ok=True)
         with open(sample_rst_out, "w") as f:
             doc = RstCloth(f)
-            doc.directive("metadata", 
+            doc.directive("meta", 
                 fields=[
                     ('description', config["metadata"]["description"]), 
                     ('keywords', ", ".join(config["metadata"]["keywords"]))
             ])
             doc.newline()
+            doc.newline()
+            
             with open(sample_source_dir / "header.md") as header_file:
                 header_content = convertMarkdownToRst(header_file.read())
                 doc._stream.write(header_content)
                 doc.newline()
                 doc.newline()
             
-            parse_usd_py(doc, sample_source_dir)
-            parse_kit_commands(doc, sample_source_dir)
 
-def parse_python(python_file_path):
-    with open(python_file_path) as f:
-        content = f.read()
-    content_lines = content.split("\n")
-    tree = ast.parse(content)
-    sample_info = {}
-    sample_info["module_docstring"] = ast.get_docstring(tree)
-
-    blocks = []
-    current_block = None
-    current_block_code_start = None
-    current_block_code_end = None
-    for obj in tree.body[1:]:
-        if isinstance(obj, ast.Expr):
-            current_block = {"intro": obj.value.value.strip(), "code": []}
-            current_block_code_start = None
-            current_block_code_end = None
-        if isinstance(obj, (ast.Import, ast.ImportFrom)) and current_block_code_start is None:
-            current_block_code_start = obj.lineno-1
-        if isinstance(obj, ast.FunctionDef) and current_block_code_end is None:
-            last_body = obj.body[-1]
-            while isinstance (last_body,(ast.For,ast.While,ast.If)):
-                last_body = last_body.body[-1]
-            current_block_code_end = last_body.end_lineno
-            current_block["code"] = "\n".join(content_lines[current_block_code_start:current_block_code_end])
-            blocks.append(current_block)
-
-    sample_info["blocks"] = blocks
-
-    return sample_info
-
-
-def parse_usd_py(doc: RstCloth, sample_source_dir):
-    usd_py_file = sample_source_dir / "python" / "usd.py"
-    if not usd_py_file.exists():
-        logger.warning("USD Python code sample does not exist. Skipping...")
-        return
-    logger.info("Parsing usd.py")
-    content = parse_python(usd_py_file)
-    doc.h2("USD Python API")
-    doc.content(content["module_docstring"])
-    doc.newline()
-    for block in content["blocks"]:
-        doc.content(block["intro"])
-        doc.newline()
-        doc.codeblock(block["code"], language="python")
-    doc.newline()
-
-def parse_kit_commands(doc: RstCloth, sample_source_dir):
-    kit_cmd_py_file = sample_source_dir / "python" / "kit_commands.py"
-    if not kit_cmd_py_file.exists():
-        logger.warning("Kit Commands code sample does not exist. Skipping...")
-        return
-    logger.info("Parsing kit_commands.py")
-    content = parse_python(kit_cmd_py_file)
-    doc.h2("Omniverse Kit Commands")
-    doc.content(content["module_docstring"])
-    doc.newline()
-    for block in content["blocks"]:
-        doc.content(block["intro"])
-        doc.newline()
-        doc.codeblock(block["code"], language="python")    
-    doc.newline()        
-
+            doc.directive("tab-set")
+            doc.newline()           
+            
+            code_flavors = {"USD Python" : "py_usd.md",
+                            "Omni Python" : "py_omni.md",
+                            "Kit Commands" : "py_kit_commands.md",  
+                            "USD C++" : "cpp_usd.md",  
+                            "USDA" : "usda.md",  
+            }
+            
+            for tab_name in code_flavors:
+                md_file_name = code_flavors[tab_name]
+                md_file_path = sample_source_dir / code_flavors[tab_name]
+                
+                if md_file_path.exists():
+                    doc.directive("tab-item", tab_name, None, None, 3)
+                    doc.newline()
+                    fields = [("parser" , "myst_parser.sphinx_")]
+                    doc.directive( "include", md_file_name, fields, None, 6)
+                    doc.newline()           
+                    
+            doc.newline()                       
+                    
+            shutil.copytree(sample_source_dir, sample_output_dir, ignore=shutil.ignore_patterns('header.md', 'config.toml'), dirs_exist_ok=True )
 
 
 if __name__ == "__main__":
