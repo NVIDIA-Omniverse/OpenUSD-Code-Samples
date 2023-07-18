@@ -1,0 +1,6 @@
+[core]
+title = "Add an Inherit"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippet for adding an Inherit composition arc to a prim."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "inherit", "AddInherit", "composition", "composition arc"]

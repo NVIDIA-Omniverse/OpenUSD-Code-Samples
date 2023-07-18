@@ -1,0 +1,1 @@
+foundPrims = [x for x in stage.Traverse() if x.GetName() == myname]

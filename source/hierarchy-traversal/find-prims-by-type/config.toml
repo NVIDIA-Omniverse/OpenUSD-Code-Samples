@@ -1,0 +1,6 @@
+[core]
+title = "Find All the Prims of a Given Type"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippet for finding all the Prims on a Stage of a certain type."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "IsA", "Traverse"]

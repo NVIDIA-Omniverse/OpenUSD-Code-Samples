@@ -2,6 +2,6 @@
 
 The ``CreatePrimWithDefaultXform`` command in Kit can create a Camera prim and you can optionally set camera attributes values during creation. You must use the attribute token names as the keys for the ``attributes`` dictionary. In Omniverse applications, you can explore the names by hovering over a property label in the Property Window and reading it from the tooltip.
 
-``` {literalinclude} py_kit_commands.py
+``` {literalinclude} py_kit_cmds.py
 :language: py
 ```

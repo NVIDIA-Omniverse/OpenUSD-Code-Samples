@@ -1,0 +1,6 @@
+[core]
+title = "Get the Child of a Prim"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippets for getting the child of a Prim."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "child", "children"]

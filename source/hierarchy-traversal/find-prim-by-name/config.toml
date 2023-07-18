@@ -1,0 +1,6 @@
+[core]
+title = "Find a Prim by Name"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippet for finding a Prim by its name on a Stage."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "name", "Traverse"]

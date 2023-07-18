@@ -10,7 +10,7 @@ from md_to_rst import convertMarkdownToRst
 
 
 REPO_ROOT = Path(__file__).parent
-SOURCE_DIR = REPO_ROOT / "source"
+SOURCE_DIR = REPO_ROOT / "source2"
 BUILD_DIR = REPO_ROOT / "_build" / "usd"
 
 logger = logging.getLogger(__name__)
@@ -29,23 +29,35 @@ def main():
     for config_file in SOURCE_DIR.rglob("config.toml"):
         logger.info(f"processing: {config_file.parent.name}")
         sample_source_dir = config_file.parent
-        #logger.info(f"sample_source_dir:: {sample_source_dir}")
+        logger.info(f"sample_source_dir:: {sample_source_dir}")
         
         sample_output_dir = BUILD_DIR / sample_source_dir.parent.relative_to(SOURCE_DIR)  / f"{config_file.parent.name}"
-        #logger.info(f"sample_output_dir:: {sample_output_dir}")
         
+        
+        logger.info(f"sample_output_dir:: {sample_output_dir}")
         # make sure category dir exists
+       
         category_output_dir = BUILD_DIR / sample_source_dir.parent.relative_to(SOURCE_DIR)
-        #logger.info(f"category_output_dir:: {category_output_dir}")
-               
+        logger.info(f"category_output_dir:: {category_output_dir}")
+
+        
         if not os.path.exists(category_output_dir):
             category_output_dir.mkdir(exist_ok=False)   
             
+        #logger.info(f"config_file.parent: {config_file.parent}")
+                 
         sample_rst_out = category_output_dir / f"{config_file.parent.name}.rst"
-        #logger.info(f"sample_rst_out: {sample_rst_out}")
+        logger.info(f"sample_rst_out: {sample_rst_out}")
         with open(config_file) as f:
             content = f.read()
             config = toml.loads(content)
+            
+        abbreviated_suffix = ""
+        name_starts = config_file.parent.name.split("-")
+        for name_part in name_starts:
+            abbreviated_suffix += name_part[0]
+
+        logger.info(f"abbreviated_suffix: {abbreviated_suffix}")   
 
         sample_output_dir.mkdir(exist_ok=True)
         with open(sample_rst_out, "w") as f:
@@ -69,11 +81,12 @@ def main():
             
             code_flavors = {"USD Python" : "py_usd.md",
                             "omni.usd Python" : "py_omni_usd.md",
-                            "omni.usd C++" : "cpp_omni_usd.md",
                             "Kit Commands" : "py_kit_cmds.md",  
                             "USD C++" : "cpp_usd.md",  
                             "USDA" : "usda.md",  
             }
+            
+            
             
             for tab_name in code_flavors:
                 md_file_name = code_flavors[tab_name]
@@ -83,48 +96,40 @@ def main():
                     doc.directive("tab-item", tab_name, None, None, 3)
                     doc.newline()
                     
-                    # make sure all md flavor names are unique
-                    new_md_name = config_file.parent.name + "_" + md_file_name
-                    category_output_dir
+                    # make sure that the abbreviation is unique, else number it
+                    done = False
+                    attempt_count = 0
+                    new_md_name = ""
+                    while not done:
+                        new_abbreviated_suffix = abbreviated_suffix
+                        if attempt_count > 0:
+                            new_abbreviated_suffix = abbreviated_suffix + str(attempt_count)
+                            logger.info(f"trying new markdown suffix:: {new_abbreviated_suffix}")
+                            
+                        attempt_count += 1
+                        new_md_name = md_file_name.split(".")[0] + "_" + new_abbreviated_suffix + ".md"
 
-                    out_md = category_output_dir / new_md_name
-                    prepend_include_path(md_file_path, out_md, config_file.parent.name)
+                        new_md_path = category_output_dir / new_md_name
+                        done = not os.path.exists(new_md_path) 
+
+                    # copy md file to build dir, then rename to abbreviated name
+                    shutil.copy(md_file_path, category_output_dir)
+                    dst_file = os.path.join(category_output_dir, md_file_name)
+                    new_dst_file_name = os.path.join(category_output_dir, new_md_name)
+                    os.rename(dst_file, new_dst_file_name)#rename                    
+                    #shutil.copy( md_file_path, category_output_dir)
+                    
+                    
                        
                     fields = [("parser" , "myst_parser.sphinx_")]
                     doc.directive( "include", new_md_name, fields, None, 6)
                     doc.newline()        
-
+                    
                 # copy all samples 
                 shutil.copytree(sample_source_dir, sample_output_dir, ignore=shutil.ignore_patterns('*.md', 'config.toml'), dirs_exist_ok=True )
                     
             doc.newline()    
 
-
-def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
-    with open(in_file_path) as mdf:
-        md_data = mdf.read()
-          
-    mdf.close()    
-              
-    md_lines = md_data.split("\n")
-    lc = 0
-    for line in md_lines:        
-        res =  line.find( "``` {literalinclude}")
-        if res > -1:
-            sp = line.split("``` {literalinclude}")
-            filename = sp[1].strip()
-            newl = "``` {literalinclude} " + dir_path + "/" + filename
-            md_lines[lc] = newl
-        lc += 1
-        
-    with open(out_file_path,"w") as nmdf:
-        #mdf.writelines(md_lines)
-        for line in md_lines:
-            nmdf.writelines(line + "\n")
-        nmdf.close()
-    
-    
-    
 
 if __name__ == "__main__":
     # Create an argument parser
