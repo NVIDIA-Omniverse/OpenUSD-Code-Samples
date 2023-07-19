@@ -6,6 +6,13 @@ Common code snippets for OpenUSD
 - omni_usd
 - usdrt
 
+
+# How to build
+1. `pip install -r requirements.txt`
+2. `python build.py`
+3. In a web browser, open `sphinx/html/index.html`
+
+
 # Ideas
 ## Google Collab so you can run in browser
 https://github.com/NVIDIA-Omniverse/USD-Tutorials-And-Examples
