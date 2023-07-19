@@ -1,5 +1,3 @@
-# Convert Between VtArray and Numpy Array
-
 Some Attributes store array type data which are accessed using the VtArray classes. You can find a list of the VtArray classes in our 
 
 FIXME: USD Data Types documentation <../../quick-start/usd-types>`. 

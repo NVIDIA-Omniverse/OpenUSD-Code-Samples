@@ -1,47 +1,53 @@
 import argparse
 import logging
 from pathlib import Path
+import subprocess
 import toml
 import os
 import shutil
 
 from rstcloth import RstCloth
-from md_to_rst import convertMarkdownToRst
 
 
 REPO_ROOT = Path(__file__).parent
 SOURCE_DIR = REPO_ROOT / "source"
-BUILD_DIR = REPO_ROOT / "_build" / "usd"
+SPHINX_DIR = REPO_ROOT / "sphinx"
+SPHINX_CODE_SAMPLES_DIR = SPHINX_DIR / "usd"
 
 logger = logging.getLogger(__name__)
 
 def main():    
 
     # flush build dir 
-    sub_usd_build_dir = REPO_ROOT / "_build"
-    if os.path.exists(sub_usd_build_dir):
-        shutil.rmtree(sub_usd_build_dir)    
+    if os.path.exists(SPHINX_CODE_SAMPLES_DIR):
+        shutil.rmtree(SPHINX_CODE_SAMPLES_DIR)    
     
-    sub_usd_build_dir.mkdir(exist_ok=False)    
-    BUILD_DIR.mkdir(exist_ok=False)    
+    SPHINX_CODE_SAMPLES_DIR.mkdir(exist_ok=False)        
 
+    samples = {}
     # each config.toml should be a sample
     for config_file in SOURCE_DIR.rglob("config.toml"):
-        logger.info(f"processing: {config_file.parent.name}")
+        category_name = config_file.parent.parent.name
+        sample_name = config_file.parent.name
+        if category_name not in samples:
+            samples[category_name] = []
+        samples[category_name].append(sample_name)
+
+        logger.info(f"processing: {sample_name}")
         sample_source_dir = config_file.parent
         #logger.info(f"sample_source_dir:: {sample_source_dir}")
         
-        sample_output_dir = BUILD_DIR / sample_source_dir.parent.relative_to(SOURCE_DIR)  / f"{config_file.parent.name}"
+        sample_output_dir = SPHINX_CODE_SAMPLES_DIR / sample_source_dir.parent.relative_to(SOURCE_DIR)  / f"{sample_name}"
         #logger.info(f"sample_output_dir:: {sample_output_dir}")
         
         # make sure category dir exists
-        category_output_dir = BUILD_DIR / sample_source_dir.parent.relative_to(SOURCE_DIR)
+        category_output_dir = SPHINX_CODE_SAMPLES_DIR / sample_source_dir.parent.relative_to(SOURCE_DIR)
         #logger.info(f"category_output_dir:: {category_output_dir}")
                
         if not os.path.exists(category_output_dir):
             category_output_dir.mkdir(exist_ok=False)   
             
-        sample_rst_out = category_output_dir / f"{config_file.parent.name}.rst"
+        sample_rst_out = category_output_dir / f"{sample_name}.rst"
         #logger.info(f"sample_rst_out: {sample_rst_out}")
         with open(config_file) as f:
             content = f.read()
@@ -56,13 +62,19 @@ def main():
                     ('keywords', ", ".join(config["metadata"]["keywords"]))
             ])
             doc.newline()
+            doc.title(config["core"]["title"])
             doc.newline()
             
-            with open(sample_source_dir / "header.md") as header_file:
-                header_content = convertMarkdownToRst(header_file.read())
-                doc._stream.write(header_content)
-                doc.newline()
-                doc.newline()            
+            
+            md_file_path = sample_source_dir / "header.md"
+            new_md_name = sample_name + "_header.md"
+
+            out_md = category_output_dir / new_md_name
+            prepend_include_path(md_file_path, out_md, sample_name)
+            fields = [("parser" , "myst_parser.sphinx_")]
+            doc.directive( "include", new_md_name, fields)
+            doc.newline()  
+            doc.newline()            
 
             doc.directive("tab-set")
             doc.newline()           
@@ -84,11 +96,11 @@ def main():
                     doc.newline()
                     
                     # make sure all md flavor names are unique
-                    new_md_name = config_file.parent.name + "_" + md_file_name
+                    new_md_name = sample_name + "_" + md_file_name
                     category_output_dir
 
                     out_md = category_output_dir / new_md_name
-                    prepend_include_path(md_file_path, out_md, config_file.parent.name)
+                    prepend_include_path(md_file_path, out_md, sample_name)
                        
                     fields = [("parser" , "myst_parser.sphinx_")]
                     doc.directive( "include", new_md_name, fields, None, 6)
@@ -97,7 +109,16 @@ def main():
                 # copy all samples 
                 shutil.copytree(sample_source_dir, sample_output_dir, ignore=shutil.ignore_patterns('*.md', 'config.toml'), dirs_exist_ok=True )
                     
-            doc.newline()    
+            doc.newline()
+    
+    generate_sphinx_index(samples)
+
+    make_path = SPHINX_DIR / "make"
+    if not make_path.exists():
+        make_path = SPHINX_DIR / "make.bat"
+        if not make_path.exists():
+            raise RuntimeError("Could not locate Sphinx 'make' command")
+    subprocess.run([str(make_path), "html"])
 
 
 def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
@@ -124,7 +145,18 @@ def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
         nmdf.close()
     
     
-    
+def generate_sphinx_index(samples):
+    index_rst = SPHINX_DIR / "index.rst"
+    with open(index_rst, "w") as f:
+        doc = RstCloth(f)
+        doc.title("OpenUSD Code Samples")
+        for category, cat_samples in samples.items():
+            fields = [
+                ("caption", category)
+            ]
+            sample_paths = [f"usd/{category}/{sample}" for sample in cat_samples]
+            doc.directive("toctree", None, fields, sample_paths)
+            doc.newline()
 
 if __name__ == "__main__":
     # Create an argument parser

@@ -1,3 +1,6 @@
 _build/
 .venv/
 __pycache__/
+
+sphinx/index.rst
+sphinx/usd/
