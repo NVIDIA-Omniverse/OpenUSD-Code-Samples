@@ -1,13 +1,12 @@
 import argparse
 import logging
-from pathlib import Path
-import subprocess
-import toml
 import os
 import shutil
+import subprocess
+from pathlib import Path
 
+import toml
 from rstcloth import RstCloth
-
 
 REPO_ROOT = Path(__file__).parent
 SOURCE_DIR = REPO_ROOT / "source"
@@ -113,12 +112,8 @@ def main():
     
     generate_sphinx_index(samples)
 
-    make_path = SPHINX_DIR / "make"
-    if not make_path.exists():
-        make_path = SPHINX_DIR / "make.bat"
-        if not make_path.exists():
-            raise RuntimeError("Could not locate Sphinx 'make' command")
-    subprocess.run([str(make_path), "html"])
+    sphinx_build_cmd = ["python", "-m" "sphinx.cmd.build", str(SPHINX_DIR), str(SPHINX_DIR / "_build"), "-b", "html"]
+    subprocess.run(sphinx_build_cmd)
 
 
 def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
