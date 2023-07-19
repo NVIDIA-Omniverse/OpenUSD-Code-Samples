@@ -61,7 +61,7 @@ def main():
                     ('keywords', ", ".join(config["metadata"]["keywords"]))
             ])
             doc.newline()
-            doc.title(config["core"]["title"])
+            doc.title(config["core"]["title"], overline=False)
             doc.newline()
             
             
@@ -79,10 +79,11 @@ def main():
             doc.newline()           
             
             code_flavors = {"USD Python" : "py_usd.md",
-                            "omni.usd Python" : "py_omni_usd.md",
-                            "omni.usd C++" : "cpp_omni_usd.md",
-                            "Kit Commands" : "py_kit_cmds.md",  
+                            "Python omni.usd" : "py_omni_usd.md",
+                            "Python Kit Commands" : "py_kit_cmds.md",  
                             "USD C++" : "cpp_usd.md",  
+                            "C++ omni.usd" : "cpp_omni_usd.md",
+                            "C++ Kit Commands" : "cpp_kit_cmds.md",  
                             "USDA" : "usda.md",  
             }
             
