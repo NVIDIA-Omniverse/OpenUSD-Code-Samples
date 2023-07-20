@@ -20,8 +20,11 @@ def create_perspective_camera(prim_path: str="/World/MyPerspCam"):
            "clippingRange": (0.1, 100000)
        }
     )
-    
+
+
+#############    
 # Full Usage
+#############
 import omni.usd
 
 path = "/World/MyPerspCam"
@@ -30,6 +33,7 @@ create_perspective_camera(path)
 # Check that the camera was created
 stage = omni.usd.get_context().get_stage()
 prim = stage.GetPrimAtPath(path)
-assert(prim.IsValid())
-# TODO: Assert Type
-# TODO: Assert Projection Attr value
+assert prim.IsValid() == True
+assert prim.GetTypeName() == "Camera"
+projection = prim.GetAttribute("projection").Get()
+assert projection == UsdGeom.Tokens.perspective

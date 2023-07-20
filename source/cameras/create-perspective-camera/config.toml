@@ -2,5 +2,5 @@
 title = "Create a Perspective Camera"
 
 [metadata]
-description = "Universal Scene Description (OpenUSD) code sample creates a perspective camera"
+description = "Universal Scene Description (OpenUSD) code sample to createa a perspective camera."
 keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "camera", "perspective"]
