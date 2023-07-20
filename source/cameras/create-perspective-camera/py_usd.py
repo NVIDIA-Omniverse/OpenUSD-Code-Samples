@@ -2,7 +2,7 @@ from pxr import Usd, Sdf, UsdGeom
 
 def create_perspective_camera(stage: Usd.Stage, prim_path: str="/World/MyPerspCam") -> UsdGeom.Camera:
     camera_path = Sdf.Path(prim_path)
-    usd_camera = UsdGeom.Camera.Define(stage, camera_path)
+    usd_camera: UsdGeom.Camera = UsdGeom.Camera.Define(stage, camera_path)
     usd_camera.CreateProjectionAttr().Set(UsdGeom.Tokens.perspective)
     return usd_camera
 

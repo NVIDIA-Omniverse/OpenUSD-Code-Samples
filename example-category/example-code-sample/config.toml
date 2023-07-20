@@ -1,6 +1,9 @@
 [core]
+# The title for this code sample. Used to name the page.
 title = "My Code Example Code Sample"
 
 [metadata]
+#A concise description of the code sample for SEO.
 description = "Universal Scene Description (OpenUSD) code sample to show how to contribute."
-keywords = ["OpenUSD", "USD", "Python", "C++", "code sample", "example"]
+# Put in SEO keywords relevant to this code sample.
+keywords = ["OpenUSD", "USD", "code sample", "Python", "C++", "example"]
