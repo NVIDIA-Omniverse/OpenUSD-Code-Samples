@@ -1,0 +1,3 @@
+FIXME:
+
+A `SubLayer <https://graphics.pixar.com/usd/release/glossary.html#usdglossary-sublayers>` is a composition arc used to build `LayerStacks <https://graphics.pixar.com/usd/release/glossary.html#usdglossary-layerstack>`. In a LayerStack, the Layer that includes SubLayers has the strongest opinion. From there, the SubLayers are ordered from strongest to weakest starting from top to bottom (or first to last) in the :code:`subLayers` list. This snippet shows how to create a new Layer and add it as a SubLayer.
