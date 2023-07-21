@@ -18,7 +18,7 @@ This image shows the file structure that contains two Code Samples for cameras.
 
 ![Alt text](images/image.png)
 
-Our Code Samples are stored in the source folder and organized by their categories in respective folders
+Our Code Samples are stored in the source directory, organized by categories. Each sample has their files, including the actual sample code, in their own directory.
 
 In this example, we have two camera Code Samples. The paths to these two Code Samples folders are the following:
 
@@ -47,15 +47,15 @@ In this example, we have two camera Code Samples. The paths to these two Code Sa
 | cpp_kit_cmds.cpp | C++ using Kit commands |
 | usda.usda | USDA (text) file |
 
-Each flavor can have more than one sample (variations). In this case we append _var(X) where X starts with 1 and increments for as many sample variations as needed.
+Each flavor can have more than one sample (variations). In this case we append _var< X >, where X starts with 1 and increments for as many sample variations needed.
 
 Example: `py_usd.py`, `py_usd_var1.py`, `py_usd_var2.py `, etc...
 
 **Markdown files:**
 
-Every flavor that has a sample needs exactly one markdown file, no matter how many samples are included. They will have the same name as the code samples (excluding the variations suffix), but with the .md extension.
+Every flavor that has a sample needs exactly one markdown file, no matter how many variations are included. They will have the same name as the flavor, but with the .md extension.
 
-Example, if you have some `py_usd.py` samples you'll need a `py_usd.md` file. In the markdown file you'll need to use the `literalinclude` directive 
+Example, if you have some `py_usd.py` samples you'll need a `py_usd.md` file. In the markdown file you'll need to use the `literalinclude` directive.
 
 Example:
 ```
@@ -86,7 +86,7 @@ When all of your files are in place you should build and verify your samples are
 >python build.py
 ```
 
-If there are no errors, you can then view it by loading the root index.html file, in the ``sphinx/_build folder``, in a browser. 
+If there are no errors, you can then view it by loading the ``index.html`` file, in the ``sphinx/_build folder``, in a browser. 
 
 ![Alt text](images/root_index_file.png)
 
@@ -102,7 +102,8 @@ The second way:
 1) select the ``index.html`` file so it's showing in a VS Code window
 2) Press ``Alt-B`` and it will be launched in your default web browser.
 
-And enjoy the majesty!
+
+
 
 ---
 

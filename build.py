@@ -142,13 +142,14 @@ def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
     
     
 def generate_sphinx_index(samples):
-    index_rst = SPHINX_DIR / "index.rst"
+    index_rst = SPHINX_DIR / "usd_index.rst"
     with open(index_rst, "w") as f:
         doc = RstCloth(f)
-        doc.title("OpenUSD Code Samples")
+        #doc.title("OpenUSD Code Samples")
         for category, cat_samples in samples.items():
             fields = [
-                ("caption", category)
+                ("caption", category),
+                ("maxdepth", "2")
             ]
             sample_paths = [f"usd/{category}/{sample}" for sample in cat_samples]
             doc.directive("toctree", None, fields, sample_paths)
