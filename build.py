@@ -142,6 +142,10 @@ def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
     
     
 def generate_sphinx_index(samples):
+    cat_names_path = SOURCE_DIR / "category-display-names.toml"
+    cat_names = toml.load(cat_names_path)["name_mappings"]
+    print(f"CAT_NAMES: {cat_names}")
+
     index_rst = SPHINX_DIR / "usd_index.rst"
     with open(index_rst, "w") as f:
         doc = RstCloth(f)
@@ -151,9 +155,29 @@ def generate_sphinx_index(samples):
                 ("caption", category),
                 ("maxdepth", "2")
             ]
+            if category in cat_names.keys():
+                human_readable = cat_names[category]
+            else:
+                human_readable = readable_from_category_dir_name(category)
+            doc.h2(human_readable)
+            doc.newline()
             sample_paths = [f"usd/{category}/{sample}" for sample in cat_samples]
             doc.directive("toctree", None, fields, sample_paths)
             doc.newline()
+            
+    f.close()
+
+
+
+def readable_from_category_dir_name(category):
+    sub_strs = category.split("-")
+    readable = ""
+    for sub in sub_strs:
+        readable += sub.capitalize() + " "
+        
+    return readable.strip()
+        
+        
 
 if __name__ == "__main__":
     # Create an argument parser
