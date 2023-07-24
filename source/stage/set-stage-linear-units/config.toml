@@ -1,0 +1,6 @@
+[core]
+title = "Set the Stage Linear Units"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippet for defining the linear units of a Stage (i.e. metersPerUnit metadata)."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "stage", "metadata", "metersPerUnit", "units", "linear units"]
