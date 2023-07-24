@@ -1,0 +1,6 @@
+[core]
+title = "Set the Stage Up Axis"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippet for defining the up axis of a Stage."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "stage", "metadata", "upAxis", "axis", "coordinate system"]
