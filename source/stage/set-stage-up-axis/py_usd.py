@@ -4,7 +4,7 @@ def set_up_axis(stage: Usd.Stage, axis: UsdGeom.Tokens):
     """Sets stage up axis
 
     Args:
-        stage (Usd.Stage): The stage where the linear units should be set.
+        stage (Usd.Stage): The stage where the up axis should be set.
         axis (Tf.Token): The token to define the up axis.
     """
     UsdGeom.SetStageUpAxis(stage, axis)
