@@ -11,13 +11,16 @@ def create_perspective_camera(stage: Usd.Stage, prim_path: str="/World/MyPerspCa
 # Full Usage
 #############
 
+# Create an in-memory Stage with /World Xform prim as the default prim
 stage: Usd.Stage = Usd.Stage.CreateInMemory()
 default_prim = UsdGeom.Xform.Define(stage, Sdf.Path("/World"))
 stage.SetDefaultPrim(default_prim.GetPrim())
 
+# Create the perspective camera at /World/MyPerspCam
 cam_path = default_prim.GetPath().AppendPath("MyPerspCam")
 camera = create_perspective_camera(stage, cam_path)
 
+# Export the complete Stage as a string and print it.
 usda = stage.GetRootLayer().ExportToString()
 print(usda)
 

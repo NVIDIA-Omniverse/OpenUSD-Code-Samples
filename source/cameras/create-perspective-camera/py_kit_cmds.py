@@ -27,6 +27,8 @@ def create_perspective_camera(prim_path: str="/World/MyPerspCam"):
 #############
 import omni.usd
 
+
+# Create a perspective camera at /World/MyPerspCam
 path = "/World/MyPerspCam"
 create_perspective_camera(path)
 
