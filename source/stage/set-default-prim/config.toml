@@ -1,0 +1,6 @@
+[core]
+title = "Set the Default Prim on a Stage"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippet for setting the default prim on a Stage."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "stage", "metadata", "default prim"]
