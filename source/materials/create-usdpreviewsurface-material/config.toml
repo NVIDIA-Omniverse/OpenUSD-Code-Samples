@@ -1,0 +1,6 @@
+[core]
+title = "Create a UsdPreviewSurface Material"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippets for creating a UsdPreviewSurface material including UsdUVTexture Shader for loading data from textures."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "Omniverse Kit", "Kit Commands", "UsdPreviewSurface", "material", "CreatePreviewSurfaceMaterialPrim", "UsdUVTexture"]

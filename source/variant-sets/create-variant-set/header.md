@@ -1,7 +1,7 @@
 
 
 .. note::
-    If this is your first time authoring a variant set, we recommend that you follow `Authoring Variants USD tutorial <https://graphics.pixar.com/usd/docs/Authoring-Variants.html>`_ first.
+    If this is your first time authoring a variant set, we recommend that you follow `Authoring Variants USD tutorial <https://graphics.pixar.com/usd/docs/Authoring-Variants.html>` first.
 
 FIXME:
 

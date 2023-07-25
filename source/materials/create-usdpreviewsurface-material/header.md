@@ -1,0 +1,1 @@
+These snippets show how to create a Material prim and a `UsdPreviewSurface` Shader prim. Optionally, you can also create a `UsdUVTexture` to read from a texture file and connect it to the `UsdPreviewSurface`.

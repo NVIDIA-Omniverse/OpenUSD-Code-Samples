@@ -1,0 +1,6 @@
+[core]
+title = "Get the Parent Path for a Prim Path"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippet for adding an Inherit composition arc to a prim."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "path", "GetParentPath"]

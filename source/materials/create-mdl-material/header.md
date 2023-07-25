@@ -1,0 +1,1 @@
+If you want to create an MDL material, you can use the `CreateMdlMaterialPrimCommand` or the USD API to do the same. These snippets show how to create a Material prim and a Shader prim that reads from an MDL file. They also utilizes the `sourceAsset:subIdentifier` attribute to choose a specific material description from within the MDL file.

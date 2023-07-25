@@ -1,0 +1,3 @@
+FIXME:
+
+If you want to concatenate two strings to extend a prim path, you can use `Sdf.Path` to store and manipulate prim and property paths. This is useful for extending a prim path with the name of a new child prim that you plan to create. In this snippet we use :code:`Sdf.Path.AppendPath()`, but you can `learn more about other append methods <https://graphics.pixar.com/usd/release/api/class_sdf_path.html>`.

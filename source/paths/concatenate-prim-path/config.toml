@@ -1,0 +1,6 @@
+[core]
+title = "Concatenate a Prim Path"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippet for adding an Inherit composition arc to a prim."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample",  "property", "path", "AppendPath"]

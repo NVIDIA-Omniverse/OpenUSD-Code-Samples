@@ -145,21 +145,33 @@ def generate_sphinx_index(samples):
     cat_names_path = SOURCE_DIR / "category-display-names.toml"
     cat_names = toml.load(cat_names_path)["name_mappings"]
     print(f"CAT_NAMES: {cat_names}")
+    
+    ref_links = {"variant-sets" : "variant_sets_ref"}
 
     index_rst = SPHINX_DIR / "usd_index.rst"
     with open(index_rst, "w") as f:
         doc = RstCloth(f)
         #doc.title("OpenUSD Code Samples")
         for category, cat_samples in samples.items():
-            fields = [
-                ("caption", category),
-                ("maxdepth", "2")
-            ]
+            
+            if category in ref_links:
+                doc.ref_target(ref_links[category])
+                doc.newline()
+                doc.newline()
+            
+            human_readable = readable_from_category_dir_name(category)
             if category in cat_names.keys():
                 human_readable = cat_names[category]
             else:
                 human_readable = readable_from_category_dir_name(category)
-            doc.h2(human_readable)
+            #doc.h2(human_readable)
+            
+            fields = [
+                ("caption", human_readable),
+                ("maxdepth", "2")
+            ]
+            
+
             doc.newline()
             sample_paths = [f"usd/{category}/{sample}" for sample in cat_samples]
             doc.directive("toctree", None, fields, sample_paths)
