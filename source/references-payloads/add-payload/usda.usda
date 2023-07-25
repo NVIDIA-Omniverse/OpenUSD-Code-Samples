@@ -1,0 +1,16 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+)
+
+def Xform "World"
+{
+    def Xform "ref_prim" (
+        prepend payload = [
+            @C:/path/to/file.usd@</World/some/target>,
+            @C:/path/to/other/file.usd@
+        ]
+    )
+    {
+    }
+}

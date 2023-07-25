@@ -1,0 +1,6 @@
+[core]
+title = "Add a Payload"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippets for adding a Payload to a prim."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "payload", "AddPayload"]
