@@ -1,0 +1,1 @@
+USD does not have a concept of a selection, but in Kit, you can select prims enabling users and extensions to then use manipulators and tools on the selection or perform actions upon the selection. This snippet shows you how you can get the list of currently selected prim paths on the stage.

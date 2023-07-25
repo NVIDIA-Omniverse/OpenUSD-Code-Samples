@@ -1,0 +1,1 @@
+USD does not have a concept of a selection, but in Kit, you can select prims enabling users and extensions to then use manipulators and tools on the selection or perform actions upon the selection. These snippets shows you how you can select one or more prims by their prim paths.

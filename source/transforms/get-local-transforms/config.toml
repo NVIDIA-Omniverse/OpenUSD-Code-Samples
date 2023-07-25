@@ -1,0 +1,6 @@
+[core]
+title = "Get the Local Space Transforms for a Prim"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code sample showing how to get the local transform for a prim."
+keywords = ["OpenUSD", "USD", "Python", "omni.usd", "code sample", "local space", "local", "transforms", "get_local_transform_SRT", "GetLocalTransformation"]

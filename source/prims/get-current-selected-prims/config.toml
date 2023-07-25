@@ -1,0 +1,6 @@
+[core]
+title = "Get the Current Selected Prims"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code sample showing how to get the world space transforms for a prim."
+keywords = ["OpenUSD", "USD", "Python",  "code sample", "prim", "exists", "IsValid", "valid"]

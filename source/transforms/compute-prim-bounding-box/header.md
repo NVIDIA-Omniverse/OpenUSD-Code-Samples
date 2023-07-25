@@ -1,0 +1,1 @@
+USD includes functions for computing the bounding box for a prim and all of its descendants. Bounding boxes are represented by the minimum point and maximum point of the bounding box. The two points form a diagonal across the interior of the box. These snippets show how to compute and retrieve a prim's bounding box in world space.

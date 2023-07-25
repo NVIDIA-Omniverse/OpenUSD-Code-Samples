@@ -1,0 +1,6 @@
+[core]
+title = "Add a Specialize"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippet for adding a Specialize composition arc to a prim."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "specialize", "composition", "composition arc"]

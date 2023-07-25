@@ -1,0 +1,6 @@
+[core]
+title = "Check if a Prim Exists"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippet for checking if a Prim exists on a Stage."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "exists", "IsValid", "valid"]
