@@ -131,12 +131,12 @@ def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
               
     md_lines = md_data.split("\n")
     lc = 0
-    for line in md_lines:        
-        res =  line.find( "``` {literalinclude}")
-        if res > -1:
-            sp = line.split("``` {literalinclude}")
+    for line in md_lines:   
+        inc_str ="``` {literalinclude}"
+        sp = line.split(inc_str)
+        if len(sp) > 1:
             filename = sp[1].strip()
-            newl = "``` {literalinclude} " + dir_path + "/" + filename
+            newl = inc_str + " " + dir_path + "/" + filename
             md_lines[lc] = newl
         lc += 1
         
