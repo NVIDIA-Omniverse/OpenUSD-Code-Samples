@@ -30,7 +30,10 @@ def main():
         sample_name = config_file.parent.name
         if category_name not in samples:
             samples[category_name] = []
-        samples[category_name].append(sample_name)
+            
+        #print(f"config_file  == {config_file["core"]["title"]}")
+        # print(f"config_file  == {config_file["core"]["title"]}")
+        # samples[category_name].append(sample_name)#, config_file["core"]["title"]])
 
         logger.info(f"processing: {sample_name}")
         sample_source_dir = config_file.parent
@@ -51,6 +54,9 @@ def main():
         with open(config_file) as f:
             content = f.read()
             config = toml.loads(content)
+
+        title = config["core"]["title"]
+        samples[category_name].append([sample_name, title])
 
         sample_output_dir.mkdir(exist_ok=True)
         with open(sample_rst_out, "w") as f:
@@ -146,8 +152,12 @@ def generate_sphinx_index(samples):
     cat_names = toml.load(cat_names_path)["name_mappings"]
     print(f"CAT_NAMES: {cat_names}")
     
-    ref_links = {"variant-sets" : "variant_sets_ref"}
+    ref_links = {"variant-sets" : "variant_sets_ref_test"}
 
+    # 0 = normal toctree
+    # 1 = manual ref's and doc defs
+    toctree_style = 0
+    
     index_rst = SPHINX_DIR / "usd_index.rst"
     with open(index_rst, "w") as f:
         doc = RstCloth(f)
@@ -156,7 +166,6 @@ def generate_sphinx_index(samples):
             
             if category in ref_links:
                 doc.ref_target(ref_links[category])
-                doc.newline()
                 doc.newline()
             
             human_readable = readable_from_category_dir_name(category)
@@ -171,11 +180,18 @@ def generate_sphinx_index(samples):
                 ("maxdepth", "2")
             ]
             
-
             doc.newline()
-            sample_paths = [f"usd/{category}/{sample}" for sample in cat_samples]
-            doc.directive("toctree", None, fields, sample_paths)
-            doc.newline()
+            
+            if toctree_style == 0:
+                sample_paths = [f"usd/{category}/{sample[0]}" for sample in cat_samples]
+                doc.directive("toctree", None, fields, sample_paths)
+                doc.newline()
+            elif toctree_style == 1: 
+                doc.h2(human_readable)
+                doc.newline()
+                for sample, title in cat_samples:
+                    doc._add("- :doc:`" + title + f" <usd/{category}/" + sample + ">`")
+                doc.newline()                              
             
     f.close()
 
