@@ -1,4 +1,4 @@
-You can set the :code:`metersPerUnit` metadata on the stage using :code:`UsdGeom.SetStageMetersPerUnit`. Convenience shortcuts for units are scoped in :code:`UsdGeom.LinearUnits` (e.g. :code:`UsdGeom.LinearUnits.meters` is :code:`1.0 metersPerUnit`)
+You can set the `metersPerUnit` metadata on the stage using `UsdGeom.SetStageMetersPerUnit`. Convenience shortcuts for units are scoped in `UsdGeom.LinearUnits` (e.g. `UsdGeom.LinearUnits.meters` is `1.0 metersPerUnit`)
 
 .. note::
     Fallback stage linear units are centimeters (0.01).

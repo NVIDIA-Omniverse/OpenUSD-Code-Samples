@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 from pxr import Usd, Sdf, UsdGeom
 
 def add_int_reference(prim: Usd.Prim, ref_target_path: Sdf.Path) -> None:
