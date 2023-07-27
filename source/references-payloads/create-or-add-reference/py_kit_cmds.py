@@ -26,8 +26,10 @@ def add_ext_reference(prim: Usd.Prim, ref_asset_path: str, ref_target_path: Sdf.
 # Full Usage
 #############
 
-# Create new USD stage for this sample
-stage: Usd.Stage = Usd.Stage.CreateInMemory()
+# Create new USD stage for this sample in OV
+context: omni.usd.UsdContext = omni.usd.get_context()
+success: bool = context.new_stage()
+stage: Usd.Stage = context.get_stage()
 
 # Create and define default prim, so this file can be easily referenced again
 default_prim = UsdGeom.Xform.Define(stage, Sdf.Path("/World"))

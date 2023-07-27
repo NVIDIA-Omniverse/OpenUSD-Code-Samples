@@ -1,0 +1,6 @@
+[core]
+title = "Create or add a Reference"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippets for creating and adding a Reference to a prim."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "reference"]

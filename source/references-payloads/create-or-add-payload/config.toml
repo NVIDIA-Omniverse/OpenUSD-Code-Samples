@@ -1,5 +1,5 @@
 [core]
-title = "Add a Payload"
+title = "Create or add a Payload"
 
 [metadata]
 description = "Universal Scene Description (USD) Python code snippets for adding a Payload to a prim."
