@@ -1,12 +1,9 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 from pxr import Usd, UsdGeom
 
 def set_up_axis(stage: Usd.Stage, axis: UsdGeom.Tokens):
-    """Sets stage up axis
-
-    Args:
-        stage (Usd.Stage): The stage where the up axis should be set.
-        axis (Tf.Token): The token to define the up axis.
-    """
     UsdGeom.SetStageUpAxis(stage, axis)
 
 

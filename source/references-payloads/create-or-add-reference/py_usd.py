@@ -1,24 +1,17 @@
-import omni.kit.commands
-import omni.usd
+# SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 from pxr import Usd, Sdf, UsdGeom
 
 def add_int_reference(prim: Usd.Prim, ref_target_path: Sdf.Path) -> None:
-    omni.kit.commands.execute("AddReference",
-        stage=prim.GetStage(),
-        prim_path = prim.GetPath(), # an existing prim to add the reference to.
-        reference=Sdf.Reference(
-            primPath = ref_target_path
-        )
-    )
+    references: Usd.References = prim.GetReferences()
+    references.AddInternalReference(ref_target_path)
 
 def add_ext_reference(prim: Usd.Prim, ref_asset_path: str, ref_target_path: Sdf.Path) -> None:
-    omni.kit.commands.execute("AddReference",
-        stage=prim.GetStage(),
-        prim_path = prim.GetPath(), # an existing prim to add the reference to.
-        reference=Sdf.Reference(
-            assetPath = ref_asset_path,
-            primPath = ref_target_path
-        )
+    references: Usd.References = prim.GetReferences()
+    references.AddReference(
+        assetPath=ref_asset_path,
+        primPath=ref_target_path # OPTIONAL: Reference a specific target prim. Otherwise, uses the referenced layer's defaultPrim.
     )
 
 
@@ -33,7 +26,7 @@ stage: Usd.Stage = Usd.Stage.CreateInMemory()
 default_prim = UsdGeom.Xform.Define(stage, Sdf.Path("/World"))
 stage.SetDefaultPrim(default_prim.GetPrim())
 
-# Create a xform which should hold all references in this sample
+# Create an xform which should hold all references in this sample
 ref_prim: Usd.Prim = UsdGeom.Xform.Define(stage, Sdf.Path("/World/ref_prim")).GetPrim()
 
 # Add an internal reference
