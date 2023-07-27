@@ -1,0 +1,7 @@
+[core]
+# The title for this code sample. Used to name the page.
+title = "Create an Attribute"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code sample to create an attribute."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "attribute", "create"]
