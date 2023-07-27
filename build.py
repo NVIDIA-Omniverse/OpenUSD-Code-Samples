@@ -13,6 +13,10 @@ SOURCE_DIR = REPO_ROOT / "source"
 SPHINX_DIR = REPO_ROOT / "sphinx"
 SPHINX_CODE_SAMPLES_DIR = SPHINX_DIR / "usd"
 
+# 0 = normal toctree
+# 1 = :doc: tags
+TOCTREE_STYLE = 1
+
 logger = logging.getLogger(__name__)
 
 def main():    
@@ -61,6 +65,11 @@ def main():
         sample_output_dir.mkdir(exist_ok=True)
         with open(sample_rst_out, "w") as f:
             doc = RstCloth(f)
+            
+            if TOCTREE_STYLE == 1:
+                doc._add(":orphan:")
+                doc.newline()
+                                
             doc.directive("meta", 
                 fields=[
                     ('description', config["metadata"]["description"]), 
@@ -152,15 +161,15 @@ def generate_sphinx_index(samples):
     cat_names = toml.load(cat_names_path)["name_mappings"]
     print(f"CAT_NAMES: {cat_names}")
     
-    ref_links = {"variant-sets" : "variant_sets_ref_test"}
+    ref_links = {}#"variant-sets" : "variant_sets_ref_test"}
 
-    # 0 = normal toctree
-    # 1 = manual ref's and doc defs
-    toctree_style = 0
+
     
-    index_rst = SPHINX_DIR / "usd_index.rst"
+    index_rst = SPHINX_DIR / "usd.rst"
     with open(index_rst, "w") as f:
         doc = RstCloth(f)
+        doc.directive("include", "usd_header.rst")
+        doc.newline()
         #doc.title("OpenUSD Code Samples")
         for category, cat_samples in samples.items():
             
@@ -173,6 +182,7 @@ def generate_sphinx_index(samples):
                 human_readable = cat_names[category]
             else:
                 human_readable = readable_from_category_dir_name(category)
+            
             #doc.h2(human_readable)
             
             fields = [
@@ -182,17 +192,19 @@ def generate_sphinx_index(samples):
             
             doc.newline()
             
-            if toctree_style == 0:
+            if TOCTREE_STYLE == 0:
                 sample_paths = [f"usd/{category}/{sample[0]}" for sample in cat_samples]
                 doc.directive("toctree", None, fields, sample_paths)
                 doc.newline()
-            elif toctree_style == 1: 
+            elif TOCTREE_STYLE == 1: 
                 doc.h2(human_readable)
                 doc.newline()
                 for sample, title in cat_samples:
                     doc._add("- :doc:`" + title + f" <usd/{category}/" + sample + ">`")
                 doc.newline()                              
-            
+    
+        doc.directive("include", "usd_footer.rst")
+        doc.newline()       
     f.close()
 
 
