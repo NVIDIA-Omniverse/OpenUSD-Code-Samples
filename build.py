@@ -1,6 +1,7 @@
 import argparse
 import logging
 import os
+import sys
 import shutil
 import subprocess
 from pathlib import Path
@@ -13,9 +14,10 @@ SOURCE_DIR = REPO_ROOT / "source"
 SPHINX_DIR = REPO_ROOT / "sphinx"
 SPHINX_CODE_SAMPLES_DIR = SPHINX_DIR / "usd"
 
+REPLACE_USDA_EXT = True
 # 0 = normal toctree
 # 1 = :doc: tags
-TOCTREE_STYLE = 1
+TOCTREE_STYLE = 0
 
 logger = logging.getLogger(__name__)
 
@@ -117,8 +119,20 @@ def main():
                     doc.newline()        
 
                 # copy all samples 
-                shutil.copytree(sample_source_dir, sample_output_dir, ignore=shutil.ignore_patterns('*.md', 'config.toml'), dirs_exist_ok=True )
-                    
+                ignore=shutil.ignore_patterns('*.md', 'config.toml')
+                if REPLACE_USDA_EXT:
+                    ignore=shutil.ignore_patterns('*.md', 'config.toml', '*.usda')
+                shutil.copytree(sample_source_dir, sample_output_dir, ignore=ignore, dirs_exist_ok=True )
+                
+                #rename any usda's to .py
+                if REPLACE_USDA_EXT:
+                    for filename in os.listdir(sample_source_dir):
+                        base_file, ext = os.path.splitext(filename)
+                        if ext == ".usda":
+                            orig = str(sample_source_dir) + "/" + filename
+                            newname = str(sample_output_dir) + "/" + str(base_file) + ".py"
+                            shutil.copy(orig, newname)
+    
             doc.newline()
     
     generate_sphinx_index(samples)
@@ -140,6 +154,11 @@ def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
         sp = line.split(inc_str)
         if len(sp) > 1:
             filename = sp[1].strip()
+            if REPLACE_USDA_EXT:
+                sfn = filename.split(".") 
+                if len(sfn) > 1 and sfn[1] == "usda":
+                    filename = sfn[0] + ".py"
+                    
             newl = inc_str + " " + dir_path + "/" + filename
             md_lines[lc] = newl
         lc += 1
@@ -178,7 +197,7 @@ def generate_sphinx_index(samples):
             
             fields = [
                 #("caption", human_readable),
-                ("titlesonly", ""),
+                #("titlesonly", ""),
                 ("maxdepth", "0")
             ]
             
