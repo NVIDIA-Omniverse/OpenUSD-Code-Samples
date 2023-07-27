@@ -35,26 +35,21 @@ def main():
         if category_name not in samples:
             samples[category_name] = []
             
-        #print(f"config_file  == {config_file["core"]["title"]}")
-        # print(f"config_file  == {config_file["core"]["title"]}")
-        # samples[category_name].append(sample_name)#, config_file["core"]["title"]])
+
 
         logger.info(f"processing: {sample_name}")
         sample_source_dir = config_file.parent
-        #logger.info(f"sample_source_dir:: {sample_source_dir}")
         
         sample_output_dir = SPHINX_CODE_SAMPLES_DIR / sample_source_dir.parent.relative_to(SOURCE_DIR)  / f"{sample_name}"
-        #logger.info(f"sample_output_dir:: {sample_output_dir}")
         
         # make sure category dir exists
         category_output_dir = SPHINX_CODE_SAMPLES_DIR / sample_source_dir.parent.relative_to(SOURCE_DIR)
-        #logger.info(f"category_output_dir:: {category_output_dir}")
                
         if not os.path.exists(category_output_dir):
             category_output_dir.mkdir(exist_ok=False)   
             
         sample_rst_out = category_output_dir / f"{sample_name}.rst"
-        #logger.info(f"sample_rst_out: {sample_rst_out}")
+        
         with open(config_file) as f:
             content = f.read()
             config = toml.loads(content)
@@ -162,8 +157,6 @@ def generate_sphinx_index(samples):
     print(f"CAT_NAMES: {cat_names}")
     
     ref_links = {}#"variant-sets" : "variant_sets_ref_test"}
-
-
     
     index_rst = SPHINX_DIR / "usd.rst"
     with open(index_rst, "w") as f:
@@ -180,14 +173,13 @@ def generate_sphinx_index(samples):
             human_readable = readable_from_category_dir_name(category)
             if category in cat_names.keys():
                 human_readable = cat_names[category]
-            else:
-                human_readable = readable_from_category_dir_name(category)
             
-            #doc.h2(human_readable)
+            doc.h2(human_readable)
             
             fields = [
-                ("caption", human_readable),
-                ("maxdepth", "2")
+                #("caption", human_readable),
+                ("titlesonly", ""),
+                ("maxdepth", "0")
             ]
             
             doc.newline()
@@ -197,7 +189,7 @@ def generate_sphinx_index(samples):
                 doc.directive("toctree", None, fields, sample_paths)
                 doc.newline()
             elif TOCTREE_STYLE == 1: 
-                doc.h2(human_readable)
+                #doc.h2(human_readable)
                 doc.newline()
                 for sample, title in cat_samples:
                     doc._add("- :doc:`" + title + f" <usd/{category}/" + sample + ">`")
