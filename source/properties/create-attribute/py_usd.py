@@ -1,4 +1,3 @@
-# Add all the imports that you need for you snippets
 from pxr import Gf, Sdf, Usd, UsdGeom
 
 """
@@ -15,7 +14,7 @@ def create_float_attribute(prim: Usd.Prim, attribute_name: str) -> Usd.Attribute
     Returns:
         Usd.Attribute: An attribute created at specific prim.
     """
-    attr = prim.CreateAttribute(attribute_name, Sdf.ValueTypeNames.Float)
+    attr: Usd.Attribute = prim.CreateAttribute(attribute_name, Sdf.ValueTypeNames.Float)
     return attr
 
 
@@ -28,7 +27,9 @@ def create_vector_attribute(prim: Usd.Prim, attribute_name: str) -> Usd.Attribut
     Returns:
         Usd.Attribute: An attribute created at specific prim.
     """
-    attr = prim.CreateAttribute(attribute_name, Sdf.ValueTypeNames.Float3)
+    attr: Usd.Attribute = prim.CreateAttribute(
+        attribute_name, Sdf.ValueTypeNames.Float3
+    )
     return attr
 
 
@@ -39,27 +40,27 @@ def create_vector_attribute(prim: Usd.Prim, attribute_name: str) -> Usd.Attribut
 # Create an in-memory Stage
 stage: Usd.Stage = Usd.Stage.CreateInMemory()
 
-# Create a default prim named /World
-default_prim_path = "/World"
-default_prim = UsdGeom.Xform.Define(stage, default_prim_path)
-stage.SetDefaultPrim(default_prim.GetPrim())
+# Create a prim named /World (type Xform) and make it the default prim.
+prim_path = "/World"
+xform: UsdGeom.Xform = UsdGeom.Xform.Define(stage, prim_path)
+prim: Usd.Prim = xform.GetPrim()
+stage.SetDefaultPrim(prim)
 
-# Create a child prim on which to test attribute creation
-test_prim_path = f"{default_prim_path}/test_prim"
-test_prim = UsdGeom.Scope.Define(stage, test_prim_path)
+# Create a float attribute on /World
+float_attr: Usd.Attribute = create_float_attribute(prim, "my_float_attr")
 
-# create a float attribute
-float_attr = create_float_attribute(test_prim.GetPrim(), "test_float_attr")
-
-# create a vector attribute
-vector_attr = create_vector_attribute(test_prim.GetPrim(), "test_vector_attr")
+# Create a vector attribute on /World
+vector_attr: Usd.Attribute = create_vector_attribute(prim, "my_vector_attr")
 
 # Set and query values
 print(float_attr.Get())
 float_attr.Set(0.1)
 print(float_attr.Get())
 
-vector_value = Gf.Vec3f(0.1, 0.2, 0.3)
+vector_value: Gf.Vec3f = Gf.Vec3f(0.1, 0.2, 0.3)
 print(vector_attr.Get())
 vector_attr.Set(vector_value)
 print(vector_attr.Get())
+
+# Optionally preview the usd
+# print(stage.GetRootLayer().ExportToString())
