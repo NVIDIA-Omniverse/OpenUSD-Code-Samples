@@ -1,0 +1,6 @@
+[core]
+title = "Create a Payload"
+
+[metadata]
+description = "Universal Scene Description (USD) Python code snippet for creating an Xform prim and adding a Payload in Omniverse Kit in one step."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "payload", "CreatePayload"]
