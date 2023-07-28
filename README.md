@@ -78,6 +78,14 @@ Example:
 
 This example includes two samples, with a description for each one.
 
+ 
+| Language code | File type |
+| -----|----- |
+| py | Python |
+| c++ | C++/cpp |
+| usd | USDA |
+
+
 # Building the Samples
 
 When all of your files are in place you should build and verify your samples are correctly setup by running the build script:
@@ -105,6 +113,27 @@ The second way:
 
 
 
+#URL links
+
+Use markdown style links
+
+    [USD Data Types documentation](https://docs.omniverse.nvidia.com/dev-guide/latest/dev_usd/quick-start/usd-types.html) 
+
+
+#Embeded RST
+
+
+## Admonitions
+
+https://myst-parser.readthedocs.io/en/latest/syntax/admonitions.html
+    
+    :::{tip}
+    https://myst-parser.readthedocs.io/en/latest/syntax/admonitions.html
+    :::
+
+
+
+
 ---
 
 
@@ -113,43 +142,6 @@ The second way:
 # Ideas
 ## Google Collab so you can run in browser
 https://github.com/NVIDIA-Omniverse/USD-Tutorials-And-Examples
-
-# Repo Format
-
-## Markdown YOLO
-| Pros | Cons |
-| -----|----- |
-| It's just markdown | Hard to test? |
-| Parsing code block isn't too hard | Hard to parse everything else. |
-| Free rein | Free rein |
-| | Hard to change the layout | 
-
-## Formatted Code
-| Pros | Cons |
-| -----|----- |
-| One file per flavor | Potentially fragile formatting |
-| All code | Potential for ambiguous formatting errors |
-| Fairly flexible for layout changes | Need to figure out how to parse C++ |
-
-
-## Granular
-| Pros | Cons |
-| -----|----- |
-| No parsing required | Lots of files |
-| Most modular in case of layout changes | Need a diagram to show how it all fits together |
-
-# Other Choices
-
-## Markdown vs RST
-### Markdown
-- Everyone knows Markdown.
-- MD can be included in our Sphinx RST. 
-- We might run into translation issues for more advanced markup.
-
-### RST
-- RST plugs in directly into our Sphinx docs.
-- If we do RST, there would be plenty of examples in the repo to learn RST.
-
 ## Function-wrapped vs Script-like
 ### Function-wrapped with Full Usage
 ```python
@@ -189,7 +181,3 @@ for variant_name in variants:
 # Remember to set the variant you want selected once you're done authoring.
 shading_varset.SetVariantSelection(variants[0])
 ```
-- Less verbose
-- More snippet-like
-- Generally not runnable or testable
-- Uses hard-coded literals or ambiguous or unscoped variables

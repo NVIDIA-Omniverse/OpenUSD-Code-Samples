@@ -1,7 +1,7 @@
 import argparse
 import logging
 import os
-import sys
+#import sys
 import shutil
 import subprocess
 from pathlib import Path
@@ -13,11 +13,11 @@ REPO_ROOT = Path(__file__).parent
 SOURCE_DIR = REPO_ROOT / "source"
 SPHINX_DIR = REPO_ROOT / "sphinx"
 SPHINX_CODE_SAMPLES_DIR = SPHINX_DIR / "usd"
-
 REPLACE_USDA_EXT = True
+
 # 0 = normal toctree
 # 1 = :doc: tags
-TOCTREE_STYLE = 0
+TOCTREE_STYLE = 1
 
 logger = logging.getLogger(__name__)
 
@@ -154,6 +154,7 @@ def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
         sp = line.split(inc_str)
         if len(sp) > 1:
             filename = sp[1].strip()
+            
             if REPLACE_USDA_EXT:
                 sfn = filename.split(".") 
                 if len(sfn) > 1 and sfn[1] == "usda":
@@ -164,7 +165,6 @@ def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
         lc += 1
         
     with open(out_file_path,"w") as nmdf:
-        #mdf.writelines(md_lines)
         for line in md_lines:
             nmdf.writelines(line + "\n")
         nmdf.close()
@@ -175,7 +175,7 @@ def generate_sphinx_index(samples):
     cat_names = toml.load(cat_names_path)["name_mappings"]
     print(f"CAT_NAMES: {cat_names}")
     
-    ref_links = {}#"variant-sets" : "variant_sets_ref_test"}
+    ref_links = {"variant-sets" : "variant_sets_ref"}
     
     index_rst = SPHINX_DIR / "usd.rst"
     with open(index_rst, "w") as f:
