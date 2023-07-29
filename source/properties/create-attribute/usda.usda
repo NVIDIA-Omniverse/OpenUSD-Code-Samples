@@ -1,0 +1,10 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+)
+
+def Xform "World"
+{
+    custom float my_float_attr = 0.1
+    custom float3 my_vector_attr = (0.1, 0.2, 0.3)
+}
