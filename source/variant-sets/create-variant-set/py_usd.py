@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 # Create the variant set and add your variants to it.
 variants = ["red", "blue", "green"]
 shading_varset = prim.GetVariantSets().AddVariantSet("shading")

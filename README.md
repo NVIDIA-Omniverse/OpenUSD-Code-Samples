@@ -27,13 +27,15 @@ In this example, we have two camera Code Samples. The paths to these two Code Sa
 
 **Within each Code Sample folder are the following files:**
 
+
 | File(s) | Purpose |
 | -----|----- |
 | config.toml | Contains the title, metadata: description and SEO keywords |
-| header.md | Hard to parse everything else. |
+| header.md | The overview for this code sample |
 | Code Sample "flavor" file(s) | See below |
 | Markdown file for each "flavor" | See below |
 
+The header file is an overview for all of the flavors. It can contain markdown formatting including URL's and markdown directives.
 
 **Each Code Sample should have at least one "flavor":**
 
@@ -136,48 +138,3 @@ https://myst-parser.readthedocs.io/en/latest/syntax/admonitions.html
 
 ---
 
-
-
-
-# Ideas
-## Google Collab so you can run in browser
-https://github.com/NVIDIA-Omniverse/USD-Tutorials-And-Examples
-## Function-wrapped vs Script-like
-### Function-wrapped with Full Usage
-```python
-from pxr import Usd, UsdGeom, Gf
-
-def compute_bbox_with_cache(cache: UsdGeom.BBoxCache, prim: Usd.Prim) -> Gf.Range3d:
-    bound = cache.ComputeWorldBound(prim)
-    bound_range = bound.ComputeAlignedBox()
-    return bound_range
-
-# Full Usage
-stage = Usd.Stage.CreateNew(...)
-...
-stage.Export()
-```
-
-- Easily testable
-- No ambiguity for variable types
-- Verbose
-
-### Script-like
-```python
-# Create the variant set and add your variants to it.
-variants = ["red", "blue", "green"]
-shading_varset = prim.GetVariantSets().AddVariantSet("shading")
-for variant_name in variants:
-    shading_varset.AddVariant(variant_name)
-
-# Author opinions in for each variant. You could do this in the previous for loop too.
-for variant_name in variants:
-    # You must select a variant to author opinion for it.
-    shading_varset.SetVariantSelection(variant_name)
-    with shading_varset.GetVariantEditContext():
-        # Specs authored within this context are authored just for the variant.
-        ...
-
-# Remember to set the variant you want selected once you're done authoring.
-shading_varset.SetVariantSelection(variants[0])
-```

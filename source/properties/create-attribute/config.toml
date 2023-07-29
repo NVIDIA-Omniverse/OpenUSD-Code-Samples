@@ -4,4 +4,4 @@ title = "Create an Attribute"
 
 [metadata]
 description = "Universal Scene Description (OpenUSD) code sample to create an attribute."
-keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "attribute", "create"]
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "attribute", "property", "create"]

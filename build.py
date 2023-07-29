@@ -20,7 +20,7 @@ REPLACE_USDA_EXT = True
 
 # 0 = normal toctree
 # 1 = :doc: tags
-TOCTREE_STYLE = 1
+TOCTREE_STYLE = 0
 
 logger = logging.getLogger(__name__)
 
@@ -127,9 +127,11 @@ def main():
                     ignore=shutil.ignore_patterns('*.md', 'config.toml', '*.usda')
                 shutil.copytree(sample_source_dir, sample_output_dir, ignore=ignore, dirs_exist_ok=True )
                 
-                #rename any usda's to .py
+                # strip out copyright comments and 
+                # rename any usda's to .py
                 if REPLACE_USDA_EXT:
                     for filename in os.listdir(sample_source_dir):
+                        strip_copyright(filename)
                         base_file, ext = os.path.splitext(filename)
                         if ext == ".usda":
                             orig = str(sample_source_dir) + "/" + filename
@@ -143,13 +145,15 @@ def main():
     sphinx_build_cmd = ["python", "-m" "sphinx.cmd.build", str(SPHINX_DIR), str(SPHINX_DIR / "_build"), "-b", "html"]
     subprocess.run(sphinx_build_cmd)
 
+def strip_copyright(filename):
+    pass
+    # with open(in_file_path) as mdf:
+    #     md_data = mdf.read()
 
 def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
     with open(in_file_path) as mdf:
         md_data = mdf.read()
           
-    mdf.close()    
-              
     md_lines = md_data.split("\n")
     lc = 0
     for line in md_lines:   
@@ -170,7 +174,7 @@ def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
     with open(out_file_path,"w") as nmdf:
         for line in md_lines:
             nmdf.writelines(line + "\n")
-        nmdf.close()
+        
     
     
 def generate_sphinx_index(samples):
@@ -219,7 +223,7 @@ def generate_sphinx_index(samples):
     
         doc.directive("include", "usd_footer.rst")
         doc.newline()       
-    f.close()
+    
 
 
 

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
 from pxr import Sdf, UsdShade
 
 mtl_path = Sdf.Path("/World/Looks/OmniPBR")
