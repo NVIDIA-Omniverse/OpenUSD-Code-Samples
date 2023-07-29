@@ -79,7 +79,6 @@ def main():
             doc.title(config["core"]["title"], overline=False)
             doc.newline()
             
-            
             md_file_path = sample_source_dir / "header.md"
             new_md_name = sample_name + "_header.md"
 
@@ -127,16 +126,20 @@ def main():
                     ignore=shutil.ignore_patterns('*.md', 'config.toml', '*.usda')
                 shutil.copytree(sample_source_dir, sample_output_dir, ignore=ignore, dirs_exist_ok=True )
                 
-                # strip out copyright comments and 
-                # rename any usda's to .py
+                # copy any usda's to .py
                 if REPLACE_USDA_EXT:
                     for filename in os.listdir(sample_source_dir):
-                        strip_copyright(filename)
                         base_file, ext = os.path.splitext(filename)
                         if ext == ".usda":
                             orig = str(sample_source_dir) + "/" + filename
                             newname = str(sample_output_dir) + "/" + str(base_file) + ".py"
-                            shutil.copy(orig, newname)
+                            shutil.copy(orig, newname)                            
+                           
+                # strip out copyright comments in output files
+                for filename in os.listdir(sample_output_dir):
+                    full_path = os.path.join(sample_output_dir, filename)
+                    strip_copyrights(full_path)  
+                
     
             doc.newline()
     
@@ -145,10 +148,23 @@ def main():
     sphinx_build_cmd = ["python", "-m" "sphinx.cmd.build", str(SPHINX_DIR), str(SPHINX_DIR / "_build"), "-b", "html"]
     subprocess.run(sphinx_build_cmd)
 
-def strip_copyright(filename):
-    pass
-    # with open(in_file_path) as mdf:
-    #     md_data = mdf.read()
+def strip_copyrights(filename):
+
+    with open(filename) as sample_file:
+        sample_lines = sample_file.readlines()
+   
+    # strip copyrights
+    while sample_lines[0].startswith("# SPDX-"):
+        sample_lines.pop(0)
+
+    # get rid of empty spacer line
+    if len(sample_lines[0].strip()) < 1:
+        sample_lines.pop(0)
+
+    with open(filename, "w") as sample_file:
+        for line in sample_lines:
+            sample_file.write(line) 
+    
 
 def prepend_include_path(in_file_path: str, out_file_path: str, dir_path: str):
     with open(in_file_path) as mdf:
@@ -205,7 +221,7 @@ def generate_sphinx_index(samples):
             fields = [
                 #("caption", human_readable),
                 #("titlesonly", ""),
-                ("maxdepth", "0")
+                ("maxdepth", "2")
             ]
             
             doc.newline()
