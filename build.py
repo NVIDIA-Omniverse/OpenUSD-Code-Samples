@@ -16,11 +16,12 @@ REPO_ROOT = Path(__file__).parent
 SOURCE_DIR = REPO_ROOT / "source"
 SPHINX_DIR = REPO_ROOT / "sphinx"
 SPHINX_CODE_SAMPLES_DIR = SPHINX_DIR / "usd"
-REPLACE_USDA_EXT = True
 
-# 0 = normal toctree
-# 1 = :doc: tags
+# 0 = normal toctree, 1 = :doc: tags
 TOCTREE_STYLE = 0
+REPLACE_USDA_EXT = True
+STRIP_COPYRIGHTS = True
+
 
 logger = logging.getLogger(__name__)
 
@@ -136,9 +137,10 @@ def main():
                             shutil.copy(orig, newname)                            
                            
                 # strip out copyright comments in output files
-                for filename in os.listdir(sample_output_dir):
-                    full_path = os.path.join(sample_output_dir, filename)
-                    strip_copyrights(full_path)  
+                if STRIP_COPYRIGHTS:
+                    for filename in os.listdir(sample_output_dir):
+                        full_path = os.path.join(sample_output_dir, filename)
+                        strip_copyrights(full_path)  
                 
     
             doc.newline()
@@ -154,7 +156,11 @@ def strip_copyrights(filename):
         sample_lines = sample_file.readlines()
    
     # strip copyrights
+    # .py
     while sample_lines[0].startswith("# SPDX-"):
+        sample_lines.pop(0)
+    # .cpp
+    while sample_lines[0].startswith("// SPDX-"):
         sample_lines.pop(0)
 
     # get rid of empty spacer line
