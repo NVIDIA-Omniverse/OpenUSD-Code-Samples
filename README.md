@@ -1,4 +1,9 @@
-# OpenUSD-Code-Samples
+# OpenUSD Code Samples
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![See the Code Samples](https://img.shields.io/badge/OpenUSD-Code_Samples-green
+)](https://docs.omniverse.nvidia.com/dev-guide/latest/programmer_ref/usd.html)
+
+This repository is useful Universal Scene Description (OpenUSD) code samples in Python, C++, and USDA.
+
 Common code snippets for OpenUSD
 
 - usd
@@ -10,7 +15,7 @@ Common code snippets for OpenUSD
 # How to build
 1. `pip install -r requirements.txt`
 2. `python build.py`
-3. In a web browser, open `sphinx/html/index.html`
+3. In a web browser, open `sphinx/_build/index.html`
 
 # Samples Format
 
@@ -103,27 +108,23 @@ If there are no errors, you can then view it by loading the ``index.html`` file,
 
 
 There are two ways to do this. The first way: 
-1) Select the ``index.html`` file
-2) Right click and select ``Copy Path`` 
-3) Paste the path into address bar of your web browser  
+1. Select the ``index.html`` file
+1. Right click and select ``Copy Path`` 
+1. Paste the path into address bar of your web browser  
 ![Alt text](images/copy_path.png)
 
 The second way:
-1) select the ``index.html`` file so it's showing in a VS Code window
-2) Press ``Alt-B`` and it will be launched in your default web browser.
+1. select the ``index.html`` file so it's showing in a VS Code window
+1. Press ``Alt-B`` and it will be launched in your default web browser.
 
 
 
 
-#URL links
+## URL links
 
 Use markdown style links
 
     [USD Data Types documentation](https://docs.omniverse.nvidia.com/dev-guide/latest/dev_usd/quick-start/usd-types.html) 
-
-
-#Embeded RST
-
 
 ## Admonitions
 
