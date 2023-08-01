@@ -1,0 +1,1 @@
+In Omniverse, you can use the `ChangeProperty` command to set the default value or timesample value of an Attribute. With the USD API, you can call `Usd.Attribute.Set()` to set a default value or timesample value.

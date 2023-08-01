@@ -1,0 +1,9 @@
+[core]
+# The title for this code sample. Used to name the page.
+title = "Get the Targets of a Relationship"
+
+[metadata]
+#A concise description of the code sample for SEO.
+description = "Universal Scene Description (OpenUSD) code sample for getting the targets of a Relationship taking into account relationship forwarding."
+# Put in SEO keywords relevant to this code sample.
+keywords = ["OpenUSD", "USD", "code sample", "snippet", "Python", "C++", "relationship", "targets", "relationship forwarding"]

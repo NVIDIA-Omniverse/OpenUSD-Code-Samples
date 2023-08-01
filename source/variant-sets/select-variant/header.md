@@ -1,0 +1,1 @@
+Apart from selecting a default Variant when you create a Variant Set, you may want to change the selection in other USD layers. For example, a model could have a shading Variant Set defined, but when you Reference that model a few times in a Stage, you may want to select a different shading Variant for each Reference.
