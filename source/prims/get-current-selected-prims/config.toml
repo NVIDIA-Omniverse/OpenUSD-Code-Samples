@@ -1,6 +1,6 @@
 [core]
-title = "Get the Current Selected Prims"
+title = "Get the Currently Selected Prims"
 
 [metadata]
-description = "Universal Scene Description (OpenUSD) code samples for getting the current selected prim(s)."
-keywords = ["OpenUSD", "USD", "Python",  "code sample", "prim", "selection", "selected", "prims"]
+description = "Universal Scene Description (OpenUSD) code samples for getting the currently selected prim(s)."
+keywords = ["OpenUSD", "USD", "Python",  "code sample", "prim", "selection", "selected", "prims", "usdview"]

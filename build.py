@@ -4,7 +4,6 @@
 import argparse
 import logging
 import os
-#import sys
 import shutil
 import subprocess
 from pathlib import Path
@@ -99,6 +98,7 @@ def main():
                             "USD C++" : "cpp_usd.md",  
                             "C++ omni.usd" : "cpp_omni_usd.md",
                             "C++ Kit Commands" : "cpp_kit_cmds.md",  
+                            "usdview": "py_usdview.md",
                             "USDA" : "usda.md",  
             }
             
