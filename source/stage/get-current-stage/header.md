@@ -1,2 +1,3 @@
 USD itself does not currently have a notion of a user session associated with a current stage. This is handled by higher-level facilities in USD applications such as `usdviewApi` in USDView and `omni.usd` in Omniverse Kit.
+
 FIXME: USDView code is missing due to build script

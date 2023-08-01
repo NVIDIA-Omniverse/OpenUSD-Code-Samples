@@ -2,5 +2,5 @@
 title = "Get the Current Selected Prims"
 
 [metadata]
-description = "Universal Scene Description (USD) Python code sample showing how to get the world space transforms for a prim."
-keywords = ["OpenUSD", "USD", "Python",  "code sample", "prim", "exists", "IsValid", "valid"]
+description = "Universal Scene Description (OpenUSD) code samples for getting the current selected prim(s)."
+keywords = ["OpenUSD", "USD", "Python",  "code sample", "prim", "selection", "selected", "prims"]

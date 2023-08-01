@@ -2,5 +2,5 @@
 title = "Select a Prim by Prim Path"
 
 [metadata]
-description = "Universal Scene Description (USD) Python code sample showing how to get the reference to a prim by using its stage path."
-keywords = ["OpenUSD", "USD", "Python",  "code sample", "prim", "by", "by path", "path"]
+description = "Universal Scene Description (OpenUSD) code samples showing how to select a prim using its prim path."
+keywords = ["OpenUSD", "USD", "Python",  "code sample", "prim", "selection", "by path", "path", "prim path"]

@@ -4,6 +4,6 @@ title = "Author Data for a Particular Variant"
 
 [metadata]
 #A concise description of the code sample for SEO.
-description = "Universal Scene Description (OpenUSD) code sample for authoring data for a particular variant set."
+description = "Universal Scene Description (OpenUSD) code samples for authoring data for a particular variant set."
 # Put in SEO keywords relevant to this code sample.
 keywords = ["OpenUSD", "USD", "code sample", "Python", "C++", "variant set", "composition", "variant"]

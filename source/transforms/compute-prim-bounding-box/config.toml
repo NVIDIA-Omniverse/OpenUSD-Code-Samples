@@ -2,5 +2,5 @@
 title = "Compute the Bounding Box for a Prim"
 
 [metadata]
-description = "Universal Scene Description (USD) Python code snippet for adding a Specialize composition arc to a prim."
-keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "specialize", "composition", "composition arc"]
+description = "Universal Scene Description (OpenUSD) code samples showing how to compute the bounding box for a prim."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "bounding box", "prim", "omni.usd", "bbox", "ComputeWorldBound", "ComputeAlignedBox"]

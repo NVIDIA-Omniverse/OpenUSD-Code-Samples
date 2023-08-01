@@ -4,6 +4,6 @@ title = "Add a Relationship Target"
 
 [metadata]
 #A concise description of the code sample for SEO.
-description = "Universal Scene Description (OpenUSD) code sample for adding a target to a Relationship."
+description = "Universal Scene Description (OpenUSD) code samples for adding a target to a Relationship."
 # Put in SEO keywords relevant to this code sample.
 keywords = ["OpenUSD", "USD", "code sample", "snippet", "Python", "C++", "relationship", "targets", "property"]

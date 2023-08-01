@@ -3,4 +3,4 @@ title = "Create a Variant Set"
 
 [metadata]
 description = "Universal Scene Description (OpenUSD) code samples showing how to create a variant set."
-keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "variant set", "composition", "UsdGeom", "variant"]
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "variant set", "composition", "create variant set", "variant"]

@@ -2,5 +2,5 @@
 title = "Convert Between VtArray and Numpy Array"
 
 [metadata]
-description = "Universal Scene Description (USD) Python code snippets for converting between VtArray classes and Numpy."
+description = "Universal Scene Description (OpenUSD) code samples for converting between VtArray classes and Numpy."
 keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "types", "array", "numpy", "VtArray"]

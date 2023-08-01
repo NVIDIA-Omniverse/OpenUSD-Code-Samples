@@ -2,5 +2,5 @@
 title = "Create an MDL Material"
 
 [metadata]
-description = "Universal Scene Description (OpenUSD) code sample for creating an MDL material with a Shader prim with an MDL source asset."
+description = "Universal Scene Description (OpenUSD) code samples for creating an MDL material with a Shader prim with an MDL source asset."
 keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "Omniverse Kit", "Kit Commands", "shader", "material", "CreateMdlMaterialPrimCommand"]

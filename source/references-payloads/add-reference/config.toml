@@ -2,5 +2,5 @@
 title = "Add a Reference"
 
 [metadata]
-description = "Universal Scene Description (USD) Python code snippets for adding a Reference to a prim."
+description = "Universal Scene Description (OpenUSD) code samples for adding a Reference to a prim."
 keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "reference", "AddReference"]

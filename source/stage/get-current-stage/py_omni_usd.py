@@ -11,7 +11,7 @@ def get_current_stage() -> Usd.Stage:
 #############
 # Full Usage
 #############
-# Create a new USD stage throught the UsdContext
+# Create a new USD stage through the UsdContext
 success: bool = omni.usd.get_context().new_stage()
 
 # Get the the current stage from the UsdContext

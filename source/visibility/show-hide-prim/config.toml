@@ -4,6 +4,6 @@ title = "Show or Hide a Prim"
 
 [metadata]
 #A concise description of the code sample for SEO.
-description = "Universal Scene Description (OpenUSD) code sample that demonstrates how to a show or hide a prim."
+description = "Universal Scene Description (OpenUSD) code samples that demonstrates how to a show or hide a prim."
 # Put in SEO keywords relevant to this code sample.
 keywords = ["OpenUSD", "USD", "Python", "visibility", "show prim", "hide prim"]

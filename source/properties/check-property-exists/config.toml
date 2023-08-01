@@ -4,6 +4,6 @@ title = "Check if a Property Exists"
 
 [metadata]
 #A concise description of the code sample for SEO.
-description = "Universal Scene Description (OpenUSD) code sample for checking if a Property exists."
+description = "Universal Scene Description (OpenUSD) code samples for checking if a Property exists."
 # Put in SEO keywords relevant to this code sample.
 keywords = ["OpenUSD", "USD", "code sample", "snippet", "Python", "C++", "property", "relationship", "attribute", "IsValid", "exists", "valid"]

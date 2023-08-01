@@ -2,5 +2,5 @@
 title = "Get the Current Stage"
 
 [metadata]
-description = "Universal Scene Description (USD) Python code snippets for getting the current Stage in Omniverse Kit and USDView."
-keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "stage", "Omniverse Kit", "USDView", "USD View"]
+description = "Universal Scene Description (OpenUSD) code samples for getting the current Stage in Omniverse Kit and usdview."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "stage", "Omniverse Kit", "usdview", "USD View"]

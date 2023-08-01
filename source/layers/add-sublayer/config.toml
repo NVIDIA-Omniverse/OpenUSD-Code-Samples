@@ -2,5 +2,5 @@
 title = "Add a SubLayer"
 
 [metadata]
-description = "Universal Scene Description (USD) Python code snippet for adding an Inherit composition arc to a prim."
+description = "Universal Scene Description (OpenUSD) code samples for adding an Inherit composition arc to a prim."
 keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "layer", "SubLayer", "composition", "composition arc"]

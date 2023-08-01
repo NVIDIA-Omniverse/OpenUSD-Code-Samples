@@ -4,6 +4,6 @@ title = "Get the Value of an Attribute"
 
 [metadata]
 #A concise description of the code sample for SEO.
-description = "Universal Scene Description (OpenUSD) code sample for getting the value of an Attribute."
+description = "Universal Scene Description (OpenUSD) code samples for getting the value of an Attribute."
 # Put in SEO keywords relevant to this code sample.
 keywords = ["OpenUSD", "USD", "code sample", "snippet", "Python", "C++", "attribute", "get", "value", "value resolution", "GetAttribute"]

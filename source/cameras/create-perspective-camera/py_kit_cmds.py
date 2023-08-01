@@ -6,7 +6,7 @@ from pxr import UsdGeom
 
 
 def create_perspective_camera(prim_path: str="/World/MyPerspCam"):
-    """Create an perspective camera
+    """Create a perspective camera
 
     Args:
         prim_path (str, optional): The prim path where the camera should be created. Defaults to "/World/MyPerspCam".
