@@ -1,0 +1,1 @@
+`Usd.Prim.GetAttribute()` returns a `Usd.Attribute`, but this is not the value for the Attribute. You must call `Usd.Attribute.Get()` to perform the [attribute value resolution](https://graphics.pixar.com/usd/release/glossary.html#usdglossary-valueresolution) resulting in a default value, timesample value or interpolated value for the Attribute.
