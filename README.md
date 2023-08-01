@@ -2,14 +2,7 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![See the Code Samples](https://img.shields.io/badge/OpenUSD-Code_Samples-green
 )](https://docs.omniverse.nvidia.com/dev-guide/latest/programmer_ref/usd.html)
 
-This repository is useful Universal Scene Description (OpenUSD) code samples in Python, C++, and USDA.
-
-Common code snippets for OpenUSD
-
-- usd
-- kit_commands
-- omni_usd
-- usdrt
+This repository contains useful Universal Scene Description (OpenUSD) code samples in Python, C++, and USDA. If you want to browse the code samples to use them, you can see them fully rendered in the [OpenUSD Code Samples documentation](https://docs.omniverse.nvidia.com/dev-guide/latest/programmer_ref/usd.html) page.
 
 
 # How to build
