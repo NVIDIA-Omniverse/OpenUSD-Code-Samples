@@ -14,7 +14,11 @@ def create_orthographic_camera(stage: Usd.Stage, prim_path: str="/World/MyOrthoC
     usd_camera = UsdGeom.Camera.Define(stage, camera_path)
     usd_camera.CreateProjectionAttr().Set(UsdGeom.Tokens.orthographic)
 
+
+
+#############
 # Full Usage
+#############
 cam_path = "/World/MyOrthoCam"
 stage: Usd.Stage = Usd.Stage.CreateInMemory()
 root_prim = UsdGeom.Xform.Define(stage, Sdf.Path("/World"))
@@ -27,6 +31,8 @@ print(usda)
 
 # Check that the camera was created
 prim = stage.GetPrimAtPath(cam_path)
-assert(prim.IsValid())
-# TODO: Assert Type
-# TODO: Assert Projection Attr value
+assert prim.IsValid()
+assert prim.GetPath() == Sdf.Path(cam_path)
+assert prim.GetTypeName() == "Camera"
+projection = prim.GetProjectionAttr().Get()
+assert projection == UsdGeom.Tokens.orthographic

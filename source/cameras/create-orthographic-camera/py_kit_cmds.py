@@ -24,7 +24,6 @@ def create_orthographic_camera(prim_path: str="/World/MyOrthoCam"):
 #############
 import omni.usd
 
-
 # Create an orthographic camera at /World/MyOrthoCam
 path = "/World/MyOrthoCam"
 create_orthographic_camera(path)
