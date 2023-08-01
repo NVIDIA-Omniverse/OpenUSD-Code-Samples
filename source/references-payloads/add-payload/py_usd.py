@@ -18,7 +18,7 @@ def add_payload(prim: Usd.Prim, payload_asset_path: str, payload_target_path: Sd
 # Create new USD stage for this sample
 stage: Usd.Stage = Usd.Stage.CreateInMemory()
 
-# Create and define default prim, so this file can be easily payloaderenced again
+# Create and define default prim
 default_prim = UsdGeom.Xform.Define(stage, Sdf.Path("/World"))
 stage.SetDefaultPrim(default_prim.GetPrim())
 
