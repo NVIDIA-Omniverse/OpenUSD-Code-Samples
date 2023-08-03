@@ -1,0 +1,21 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+)
+
+def Xform "World" (
+    variants = {
+        string shading = "realistic"
+    }
+    prepend variantSets = "shading"
+)
+{
+    variantSet "shading" = {
+        "cell_shading" {
+
+        }
+        "realistic" {
+
+        }
+    }
+}

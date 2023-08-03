@@ -2,8 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import omni.kit.commands
-import omni.usd
-from pxr import Usd, Sdf, UsdGeom
+from pxr import Usd, Sdf
 
 def add_int_reference(prim: Usd.Prim, ref_target_path: Sdf.Path) -> None:
     omni.kit.commands.execute("AddReference",
@@ -28,6 +27,8 @@ def add_ext_reference(prim: Usd.Prim, ref_asset_path: str, ref_target_path: Sdf.
 #############
 # Full Usage
 #############
+import omni.usd
+from pxr import UsdGeom
 
 # Create new USD stage for this sample in OV
 context: omni.usd.UsdContext = omni.usd.get_context()

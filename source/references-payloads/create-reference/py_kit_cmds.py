@@ -3,7 +3,7 @@
 
 import omni.kit.commands
 import omni.usd
-from pxr import Usd, Sdf, UsdGeom
+from pxr import Usd, Sdf
 
 def create_reference(usd_context: omni.usd.UsdContext, path_to: Sdf.Path, asset_path: str, prim_path: Sdf.Path) -> Usd.Prim:
     omni.kit.commands.execute("CreateReference",
