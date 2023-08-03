@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-from pxr import Usd, Sdf, UsdGeom
+from pxr import Usd, Sdf
 
 def add_payload(prim: Usd.Prim, payload_asset_path: str, payload_target_path: Sdf.Path) -> None:
     payloads: Usd.Payloads = prim.GetPayloads()
@@ -14,6 +14,7 @@ def add_payload(prim: Usd.Prim, payload_asset_path: str, payload_target_path: Sd
 #############
 # Full Usage
 #############
+from pxr import UsdGeom
 
 # Create new USD stage for this sample
 stage: Usd.Stage = Usd.Stage.CreateInMemory()

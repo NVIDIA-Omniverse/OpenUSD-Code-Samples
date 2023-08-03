@@ -2,8 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 import omni.kit.commands
-import omni.usd
-from pxr import Usd, Sdf, UsdGeom
+from pxr import Usd, Sdf
 
 def add_payload(prim: Usd.Prim, payload_asset_path: str, payload_target_path: Sdf.Path) -> None:
     omni.kit.commands.execute("AddPayload",
@@ -19,6 +18,8 @@ def add_payload(prim: Usd.Prim, payload_asset_path: str, payload_target_path: Sd
 #############
 # Full Usage
 #############
+from pxr import UsdGeom
+import omni.usd
 
 # Create new USD stage for this sample in OV
 context: omni.usd.UsdContext = omni.usd.get_context()

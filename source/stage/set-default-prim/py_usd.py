@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-from pxr import Usd, UsdGeom, Sdf
+from pxr import Usd 
 
 def set_default_prim(stage: Usd.Stage, prim: Usd.Prim):
     stage.SetDefaultPrim(prim)
@@ -10,6 +10,9 @@ def set_default_prim(stage: Usd.Stage, prim: Usd.Prim):
 #############
 # Full Usage
 #############
+
+from pxr import UsdGeom, Sdf
+
 # Create new USD stage for this sample
 stage: Usd.Stage = Usd.Stage.CreateInMemory()
 
