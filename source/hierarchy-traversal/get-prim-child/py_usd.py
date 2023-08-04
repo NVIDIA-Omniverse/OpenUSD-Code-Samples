@@ -18,12 +18,18 @@ stage: Usd.Stage = Usd.Stage.CreateInMemory()
 default_prim: Usd.Prim = UsdGeom.Xform.Define(stage, Sdf.Path("/World")).GetPrim()
 stage.SetDefaultPrim(default_prim)
 
-cube: Usd.Prim = UsdGeom.Xform.Define(stage, default_prim.GetPath().AppendPath("Cube"))
+# Create a Cube prim
+cube: Usd.Prim = UsdGeom.Cube.Define(stage, default_prim.GetPath().AppendPath("Box"))
 
-child_prim = get_child_prim(default_prim, "Cube")
+# Get the child prim of the default prim with the name "Box"
+child_prim = get_child_prim(default_prim, "Box")
 
+# Print the full Stage
 usda = stage.GetRootLayer().ExportToString()
 print(usda)
+# Print the path of the child prim you were looking for.
+print(child_prim.GetPath())
 
+# Verify the child and parent relationship
 assert child_prim.GetParent() == default_prim
 assert child_prim.GetPath() == cube.GetPath()

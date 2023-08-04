@@ -30,6 +30,9 @@ UsdGeom.Sphere.Define(stage, "/World/Group/Baz")
 # find the prims with of type UsdGeom.Mesh
 prims: List[Usd.Prim] = find_prims_by_type(stage, UsdGeom.Mesh)
 
+# Print the mesh prims you found
+print(prims)
+
 # Check the number of prims found and whether the found data is correct.
 assert len(prims) == 2
 prim: Usd.Prim

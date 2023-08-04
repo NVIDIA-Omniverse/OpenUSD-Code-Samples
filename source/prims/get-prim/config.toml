@@ -1,5 +1,5 @@
 [core]
-title = "Accessing Prims"
+title = "Get a Prim"
 
 [metadata]
 description = "Universal Scene Description (OpenUSD) code samples for accessing or getting a Prim on the Stage."

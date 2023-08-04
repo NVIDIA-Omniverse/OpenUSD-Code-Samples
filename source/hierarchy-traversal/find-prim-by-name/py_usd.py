@@ -30,6 +30,9 @@ UsdGeom.Sphere.Define(stage, "/World/Group/Bar")
 # find the prims with the name "Foo"
 prims: List[Usd.Prim] = find_prims_by_name(stage, "Foo")
 
+# Print the prims to check the found prims by name.
+print(prims)
+
 # Check the number of prims found and whether the found data is correct.
 assert len(prims) == 2
 assert isinstance(prims[0], Usd.Prim)

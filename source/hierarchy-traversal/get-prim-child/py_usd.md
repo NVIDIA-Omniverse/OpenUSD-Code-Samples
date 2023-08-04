@@ -1,7 +1,4 @@
-If you know the name of the child prim, you can use `Usd.Prim.GetChild()`. This returns an invalid prim if the child doesn't exist. You can 
-
-FIXME:
-check if the returned prim exists(./check-prim-exists.html).
+If you know the name of the child prim, you can use `Usd.Prim.GetChild()`. This returns an invalid prim if the child doesn't exist. You can [check if the returned prim exists](../prims/check-prim-exists).
 
 ``` {literalinclude} py_usd.py
 :language: py
