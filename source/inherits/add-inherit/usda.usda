@@ -1,0 +1,17 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+)
+
+def Xform "World"
+{
+    def Mesh "TreeA" (
+        prepend inherits = </_class_Tree>
+    )
+    {
+    }
+}
+
+class "_class_Tree"
+{
+}
