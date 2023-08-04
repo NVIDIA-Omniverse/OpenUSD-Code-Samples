@@ -1,7 +1,6 @@
 # Code Sample Guidelines
 
-
-# Samples Format
+## Samples Format
 
 This image shows the file structure that contains two Code Samples for cameras. 
 
@@ -77,7 +76,7 @@ This example includes two samples, with a description for each one.
 | usd | USDA |
 
 
-# Building the Samples
+## Building the Samples
 
 When all of your files are in place you should build and verify your samples are correctly setup by running the build script:
 
@@ -88,7 +87,6 @@ When all of your files are in place you should build and verify your samples are
 If there are no errors, you can then view it by loading the ``index.html`` file, in the ``sphinx/_build folder``, in a browser. 
 
 ![Alt text](images/root_index_file.png)
-
 
 
 There are two ways to do this. The first way: 
@@ -102,28 +100,33 @@ The second way:
 2) Press ``Alt-B`` and it will be launched in your default web browser.
 
 
+## Markdown Cheatsheet
 
+### Links
 
-#URL links
+Create links using typical markdown syntax.
 
-Use markdown style links
+Here's an external link:
 
     [USD Data Types documentation](https://docs.omniverse.nvidia.com/dev-guide/latest/dev_usd/quick-start/usd-types.html) 
 
+You can also link to other code samples using relative paths. Here's a link to a code sample in the same category:
 
-#Embeded RST
+    [Add a Payload](add-payload) 
+
+Use the folder name for the code sample. The folder name will be the final markdown/HTML file name.
+
+Here's a link to a code sample in different category:
+
+    [Add a Payload](../prims/check-prim-exists) 
 
 
-## Admonitions
+### Admonitions
 
 https://myst-parser.readthedocs.io/en/latest/syntax/admonitions.html
     
-    :::{tip}
+    ```{tip}
     https://myst-parser.readthedocs.io/en/latest/syntax/admonitions.html
-    :::
+    ```
 
-
-
-
----
 
