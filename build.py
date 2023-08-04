@@ -226,8 +226,7 @@ def generate_sphinx_index(samples):
             
             fields = [
                 #("caption", human_readable),
-                #("titlesonly", ""),
-                ("maxdepth", "2")
+                ("titlesonly", ""),
             ]
             
             doc.newline()
