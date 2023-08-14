@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "openusd-code-samples"
+version = "1.0.0"
+description = "Universal Scene Description (OpenUSD) code samples in Python, C++, and USDA for common development features and tasks."
+license = "Apache-2.0"
+authors = []
+readme = "README.md"
+packages = [{include = "source"}]
+
+[tool.poetry.dependencies]
+python = ">=3.8, <3.11"
+numpy = "1.24.1"
+usd-core = "^23.8"
+
+
+[tool.poetry.group.docs.dependencies]
+myst-parser = "0.18.0"
+rstcloth = "0.5.4"
+Sphinx = "4.5.0"
+sphinx-design = "0.2.0"
+sphinx-rtd-theme = "1.0.0"
+toml = "0.10.2"
+
+[tool.poetry.dev-dependencies]
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

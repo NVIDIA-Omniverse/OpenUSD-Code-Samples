@@ -81,7 +81,7 @@ This example includes two samples, with a description for each one.
 When all of your files are in place you should build and verify your samples are correctly setup by running the build script:
 
 ```
->python build.py
+>poetry run python build_docs.py
 ```
 
 If there are no errors, you can then view it by loading the ``index.html`` file, in the ``sphinx/_build folder``, in a browser. 

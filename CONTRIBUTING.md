@@ -21,7 +21,7 @@
 
 - Write commit titles using imperative mood and [these rules](https://chris.beams.io/posts/git-commit/), and reference the Issue number corresponding to the PR. Following is the recommended format for commit texts:
 ```
-#<Issue Number> - <Commit Title>
+Issue #<Issue Number> - <Commit Title>
 
 <Commit Body>
 ```
@@ -46,7 +46,7 @@
 #### Pull Requests
 Developer workflow for code contributions is as follows:
 
-1. Developers must first [fork](https://help.github.com/en/articles/fork-a-repo) the [upstream](https://github.com/NVIDIA-Omniverse/OpenUSD-Code-Samples) TensorRT OSS repository.
+1. Developers must first [fork](https://help.github.com/en/articles/fork-a-repo) the [upstream](https://github.com/NVIDIA-Omniverse/OpenUSD-Code-Samples) OpenUSD Code Samples repository.
 
 2. Git clone the forked repository and push changes to the personal fork.
 
