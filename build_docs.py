@@ -4,12 +4,13 @@
 import argparse
 import logging
 import os
-import shutil
-import subprocess
 from pathlib import Path
+import shutil
 
-import toml
 from rstcloth import RstCloth
+import sphinx.cmd.build
+import toml
+
 
 REPO_ROOT = Path(__file__).parent
 SOURCE_DIR = REPO_ROOT / "source"
@@ -20,7 +21,6 @@ SPHINX_CODE_SAMPLES_DIR = SPHINX_DIR / "usd"
 TOCTREE_STYLE = 0
 REPLACE_USDA_EXT = True
 STRIP_COPYRIGHTS = True
-
 
 logger = logging.getLogger(__name__)
 
@@ -146,9 +146,8 @@ def main():
             doc.newline()
     
     generate_sphinx_index(samples)
-
-    sphinx_build_cmd = ["python", "-m" "sphinx.cmd.build", str(SPHINX_DIR), str(SPHINX_DIR / "_build"), "-b", "html"]
-    subprocess.run(sphinx_build_cmd)
+    
+    sphinx.cmd.build.main([str(SPHINX_DIR), str(SPHINX_DIR / "_build"), "-b", "html"])
 
 def strip_copyrights(filename):
 
@@ -246,8 +245,6 @@ def generate_sphinx_index(samples):
         doc.newline()       
     
 
-
-
 def readable_from_category_dir_name(category):
     sub_strs = category.split("-")
     readable = ""
@@ -257,18 +254,11 @@ def readable_from_category_dir_name(category):
     return readable.strip()
         
         
-
 if __name__ == "__main__":
     # Create an argument parser
     parser = argparse.ArgumentParser(description='Build rST documentation from code sample source.')
-
-    # Add arguments
-    parser.add_argument('--name', help='Specify the name')
-
     # Parse the arguments
     args = parser.parse_args()
 
-    # Access the values provided for the arguments
-    name = args.name
     logging.basicConfig(level=logging.INFO)
     main()
