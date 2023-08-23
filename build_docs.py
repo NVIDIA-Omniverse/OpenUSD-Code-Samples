@@ -22,6 +22,8 @@ TOCTREE_STYLE = 0
 REPLACE_USDA_EXT = True
 STRIP_COPYRIGHTS = True
 
+IMAGE_TYPES = {".jpg" , ".gif"}
+
 logger = logging.getLogger(__name__)
 
 def main():    
@@ -151,6 +153,11 @@ def main():
 
 def strip_copyrights(filename):
 
+    base_file, ext = os.path.splitext(filename)    
+    if ext in IMAGE_TYPES:
+        print(f"strip_copyrights, skip image :: {filename}")
+        return
+    
     with open(filename) as sample_file:
         sample_lines = sample_file.readlines()
    
