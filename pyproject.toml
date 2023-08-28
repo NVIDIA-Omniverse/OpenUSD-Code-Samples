@@ -10,7 +10,8 @@ packages = [{include = "source"}]
 [tool.poetry.dependencies]
 python = ">=3.8, <3.11"
 numpy = "1.24.1"
-usd-core = "^23.8"
+usd-core = "23.5"
+types-usd = "~23.5.4"
 
 
 [tool.poetry.group.docs.dependencies]
