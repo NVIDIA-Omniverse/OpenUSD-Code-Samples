@@ -641,6 +641,17 @@ files = [
 ]
 
 [[package]]
+name = "types-usd"
+version = "23.5.4"
+description = "Unofficial python stubs for Pixar's Universal Scene Description (USD)"
+optional = false
+python-versions = "*"
+files = [
+    {file = "types_usd-23.5.4-py2.py3-none-any.whl", hash = "sha256:9de9e330d7a4a7cb5006c8584899f705ff1f73703ad5b866f267b1d591681622"},
+    {file = "types_usd-23.5.4.tar.gz", hash = "sha256:916faf1868896e5c16ca9e2039d4b3f372391f9e0569728b24ba14f72ed71a7a"},
+]
+
+[[package]]
 name = "typing-extensions"
 version = "4.3.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -669,26 +680,26 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
 name = "usd-core"
-version = "23.8"
+version = "23.5"
 description = "Pixar's Universal Scene Description library"
 optional = false
 python-versions = ">=3.6, <3.11"
 files = [
-    {file = "usd_core-23.8-cp310-none-macosx_10_9_universal2.whl", hash = "sha256:e4e4213f625c4bd9c88417d3a818441cec5b05ce922637b109f50c4634279a54"},
-    {file = "usd_core-23.8-cp310-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f65ef0b6c2c945b71121213a650ed94c6faddd01f58df403b3d315f29e14c947"},
-    {file = "usd_core-23.8-cp310-none-win_amd64.whl", hash = "sha256:7bd54d233c83c175101bc620aea4ac9a0c0cba8b7dd841981202df4023bae1f9"},
-    {file = "usd_core-23.8-cp36-none-macosx_10_9_universal2.whl", hash = "sha256:96611357a7fc93f29c17fc079ae19ac03a2e05af4c7e61e3094f1993fcf2f5b0"},
-    {file = "usd_core-23.8-cp36-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b14d10ace076299f8d410000c75cc29c524dae6ec841bf58279c1155f96305c3"},
-    {file = "usd_core-23.8-cp36-none-win_amd64.whl", hash = "sha256:bb43d237af0831184482abc90ca956e9d33ebb7257bcb123a1dd5d8bc270505f"},
-    {file = "usd_core-23.8-cp37-none-macosx_10_9_universal2.whl", hash = "sha256:a40c6863e009db2911f2fc6480657b4f9bb6b111fab56ad244b33691a1ea78a5"},
-    {file = "usd_core-23.8-cp37-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0b00bf294d62d2f999b0e1828b340053afc6a8026d68fce74e27ffa9c5127e20"},
-    {file = "usd_core-23.8-cp37-none-win_amd64.whl", hash = "sha256:035c3f7513ea46ede0524d6a9200093fc537405a36a86169f8d27a29673d5768"},
-    {file = "usd_core-23.8-cp38-none-macosx_10_9_universal2.whl", hash = "sha256:5898bf1770424f31e195ff8dd6aa7ec51bcc35a965601135d54755d6777434fe"},
-    {file = "usd_core-23.8-cp38-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1d84fc5d9742896a9d7ffda20396899032ad893fc929c597e191b215f24b3862"},
-    {file = "usd_core-23.8-cp38-none-win_amd64.whl", hash = "sha256:c158462b8c5e519131af2ff60551e5e99bc4ea33dce8d51a6d6d33f4b6d3fd58"},
-    {file = "usd_core-23.8-cp39-none-macosx_10_9_universal2.whl", hash = "sha256:0db66bf9e81405dd4cc7f3df87c947ff2d7ccd2b8face6ace19901e4eedef3fc"},
-    {file = "usd_core-23.8-cp39-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8a3b7b21c54e09621d20a29c480a469d192962f5c38aec78e170e09b54d96bef"},
-    {file = "usd_core-23.8-cp39-none-win_amd64.whl", hash = "sha256:128b6816fc1071450a572d7afdd0936bd5bb9d45a82b5656a870682b70055515"},
+    {file = "usd_core-23.5-cp310-none-macosx_10_9_universal2.whl", hash = "sha256:8a8640e4f018d0a3cf47da404c13d356856be5e015a8666a2c90f280e15383bf"},
+    {file = "usd_core-23.5-cp310-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0742b2111a34cf9f2c1dd6bca910eaf15b28d474d9c6e736e4e12433677e9f24"},
+    {file = "usd_core-23.5-cp310-none-win_amd64.whl", hash = "sha256:44830b6840fbc0c3677cb7b4e35b26904f25ca3c5845d40c267883e46d8d8050"},
+    {file = "usd_core-23.5-cp36-none-macosx_10_9_universal2.whl", hash = "sha256:39e50789ef2cc5d3f043d3913756c2fa8a27a4dceb98fecef6584be107927e14"},
+    {file = "usd_core-23.5-cp36-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:54c942844b5d040f95b4e39c3c4549619e5b368835a21418316a6d251c427ae5"},
+    {file = "usd_core-23.5-cp36-none-win_amd64.whl", hash = "sha256:1ebbc7b172506dbc52be7ef268488534821177dd40f34be9853479e298d5299d"},
+    {file = "usd_core-23.5-cp37-none-macosx_10_9_universal2.whl", hash = "sha256:c537535b4f4072f7e3da9c01780c215f39d9c930dae378a233efb62b7a566278"},
+    {file = "usd_core-23.5-cp37-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:df41f7002fdb1a13905d98b5138487f1513413af2a7348d9b55942c9fcad3300"},
+    {file = "usd_core-23.5-cp37-none-win_amd64.whl", hash = "sha256:18cffa7580f43bfd0135ba6b894a600104e8dd7909ebdb3c11eaa3d778154190"},
+    {file = "usd_core-23.5-cp38-none-macosx_10_9_universal2.whl", hash = "sha256:7dde351263029315ba377f42b458e0130c824ad5c0570dbdc904e5e07911fb78"},
+    {file = "usd_core-23.5-cp38-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9f81935eb46c955e06fc8513cd01a467e1cc834605ee1a432892f159d7372b50"},
+    {file = "usd_core-23.5-cp38-none-win_amd64.whl", hash = "sha256:b712fb91d6c2c1e3f6aa49a43b797c7128d8cf79fec89b5e54a7f429dd0e45ab"},
+    {file = "usd_core-23.5-cp39-none-macosx_10_9_universal2.whl", hash = "sha256:49a316977d2425a506f6162ca0d69d02fa0a911babae8511e3a51c1e72fb9ca3"},
+    {file = "usd_core-23.5-cp39-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9359cec42357e10e75b169cdf06dc7bbd9882ed1749aa3ca414ed39dad003acc"},
+    {file = "usd_core-23.5-cp39-none-win_amd64.whl", hash = "sha256:5ff78380dc3e05f242cfa7030a7a42b20ebaf8dda57cd657208967c9ee98be64"},
 ]
 
 [[package]]
@@ -709,4 +720,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8, <3.11"
-content-hash = "2ef6d4f967e00e111c40c3acf3d1f80ef830d4c655727b54c1b15995818771db"
+content-hash = "7b50c62a4a9f8ad8cd7a89506a8c614ca0f3e78b272b36fd956681b8d5334c9a"
