@@ -15,6 +15,8 @@
 
 - Avoid introducing unnecessary complexity into existing code so that maintainability and readability are preserved.
 
+- All development should happen against the "dev" branch of the repository. Please make sure the base branch of your pull request is set to the "dev" branch when filing your pull request.
+
 - Try to keep pull requests (PRs) as concise as possible:
   - Avoid committing commented-out code.
   - Wherever possible, each PR should address a single concern. If there are several otherwise-unrelated things that should be fixed to reach a desired endpoint, our recommendation is to open several PRs and indicate the dependencies in the description. The more complex the changes are in a single PR, the more time it will take to review those changes.
@@ -48,22 +50,36 @@ Developer workflow for code contributions is as follows:
 
 1. Developers must first [fork](https://help.github.com/en/articles/fork-a-repo) the [upstream](https://github.com/NVIDIA-Omniverse/OpenUSD-Code-Samples) OpenUSD Code Samples repository.
 
-2. Git clone the forked repository and push changes to the personal fork.
-
+2. Git clone the forked repository.
   ```bash
 git clone https://github.com/YOUR_USERNAME/YOUR_FORK.git OpenUSD-Code-Samples
-# Checkout the targeted branch and commit changes
-# Push the commits to a branch on the fork (remote).
+  ```
+
+3. Create a branch off of the "dev" branch and commit changes. See [Coding Guidelines](#coding-guidelines) for commit formating rules.
+
+```bash
+# Create a branch off of the "dev" branch
+git checkout -b <local-branch> <remote-branch>
+git add <path-to-files>
+# -s flag will "sign-off" on your commit, we require all contributors to sign-off on their commits. See below for more
+git commit -s -m "Issue #<Issue Number> - <Commit Title>"
+```
+
+4. Push Changes to the personal fork.
+  ```bash
+# Push the commits to a branch on the fork (remote).  
 git push -u origin <local-branch>:<remote-branch>
   ```
 
-3. Once the code changes are staged on the fork and ready for review, a [Pull Request](https://help.github.com/en/articles/about-pull-requests) (PR) can be [requested](https://help.github.com/en/articles/creating-a-pull-request) to merge the changes from a branch of the fork into a selected branch of upstream.
-  * Exercise caution when selecting the source and target branches for the PR.
-  * Creation of a PR creation kicks off the code review process.
-  * At least one OpenUSD Code Samples engineer will be assigned for the review.
-  * While under review, mark your PRs as work-in-progress by prefixing the PR title with [WIP].
+5. Please make sure that your pull requests are clean. Use the rebase and squash git facilities as needed to ensure that the pull request is as clean as possible.
 
-4. Since there is no CI/CD process in place yet, the PR will be accepted and the corresponding issue closed only after adequate testing has been completed, manually, by the developer and/or OpenUSD Code Samples engineer reviewing the code.
+6. Once the code changes are staged on the fork and ready for review, a [Pull Request](https://help.github.com/en/articles/about-pull-requests) (PR) can be [requested](https://help.github.com/en/articles/creating-a-pull-request) to merge the changes from your branch to the upstream "dev" branch.
+    * Exercise caution when selecting the source and target branches for the PR.
+    * Creation of a PR creation kicks off the code review process.
+    * At least one OpenUSD Code Samples engineer will be assigned for the review.
+    * While under review, mark your PRs as work-in-progress by prefixing the PR title with [WIP].
+
+7. Since there is no CI/CD process in place yet, the PR will be accepted and the corresponding issue closed only after adequate testing has been completed, manually, by the developer and/or OpenUSD Code Samples engineer reviewing the code.
 
 
 #### Signing Your Work
