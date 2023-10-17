@@ -22,3 +22,6 @@ Please let us know if you find any mistakes or non-working code samples. [File a
 
 ## Contributing
 Contributions are welcome! If you would like to contribute, please read our [Contributing Guidelines](./CONTRIBUTING.md) to understand how to contribute. Also, check out the [Code Sample Guidelines](CODE-SAMPLE-GUIDELINES.md) to understand how code samples file and folders are structured in this repository and how to adhere to follow our code samples style.
+
+## Disclosures
+The goal of this repository is to help developers learn OpenUSD and be more productive. To that end, NVIDIA reserves the right to use the source code and documentation in this repository for the purpose of training and/or benchmarking of an AI code assistant for OpenUSD developers.
