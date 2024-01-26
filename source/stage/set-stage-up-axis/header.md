@@ -5,7 +5,7 @@ Fallback stage upAxis is Y.
 ```
 
 ```{warning}
-Existing objects will not be automatically rotated to adapt to the stage `upAxis`. Learn more about [stage up axis](https://graphics.pixar.com/usd/release/api/group___usd_geom_up_axis__group.html).
+Existing objects will not be automatically rotated to adapt to the stage `upAxis`. Learn more about [stage up axis](https://openusd.org/release/api/group___usd_geom_up_axis__group.html).
 ```
 
     

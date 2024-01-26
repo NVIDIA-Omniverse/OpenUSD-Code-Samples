@@ -4,13 +4,13 @@
 from pxr import Gf, Sdf, Usd, UsdGeom
 
 """
-Find all relevant data types at: https://graphics.pixar.com/usd/release/api/_usd__page__datatypes.html
+Find all relevant data types at: https://openusd.org/release/api/_usd__page__datatypes.html
 """
 
 
 def create_float_attribute(prim: Usd.Prim, attribute_name: str) -> Usd.Attribute:
     """Creates attribute for a prim that holds a float.
-    See: https://graphics.pixar.com/usd/release/api/class_usd_prim.html
+    See: https://openusd.org/release/api/class_usd_prim.html
     Args:
         prim (Usd.Prim): A Prim for holding the attribute.
         attribute_name (str): The name of the attribute to create.
@@ -23,7 +23,7 @@ def create_float_attribute(prim: Usd.Prim, attribute_name: str) -> Usd.Attribute
 
 def create_vector_attribute(prim: Usd.Prim, attribute_name: str) -> Usd.Attribute:
     """Creates attribute for a prim that holds a vector.
-    See: https://graphics.pixar.com/usd/release/api/class_usd_prim.html
+    See: https://openusd.org/release/api/class_usd_prim.html
     Args:
         prim (Usd.Prim): A Prim for holding the attribute.
         attribute_name (str): The name of the attribute to create.
