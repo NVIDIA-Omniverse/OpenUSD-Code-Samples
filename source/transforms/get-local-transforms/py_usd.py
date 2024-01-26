@@ -7,7 +7,7 @@ from pxr import Gf, Usd, UsdGeom
 def get_local_transform_xform(prim: Usd.Prim) -> typing.Tuple[Gf.Vec3d, Gf.Rotation, Gf.Vec3d]:
     """
     Get the local transformation of a prim using Xformable.
-    See https://graphics.pixar.com/usd/release/api/class_usd_geom_xformable.html
+    See https://openusd.org/release/api/class_usd_geom_xformable.html
     Args:
         prim: The prim to calculate the local transformation.
     Returns:

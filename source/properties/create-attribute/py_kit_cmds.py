@@ -9,7 +9,7 @@ from pxr import Gf, Sdf, Usd, UsdGeom
 
 def create_float_attribute(prim: Usd.Prim, attribute_name: str) -> Usd.Attribute:
     """Creates attribute for a prim that holds a float.
-    See: https://graphics.pixar.com/usd/release/api/class_usd_prim.html
+    See: https://openusd.org/release/api/class_usd_prim.html
     See: https://docs.omniverse.nvidia.com/kit/docs/omni.usd/latest/omni.usd.commands/omni.usd.commands.CreateUsdAttributeCommand.html
     Args:
         prim (Usd.Prim): A Prim for holding the attribute.
@@ -30,7 +30,7 @@ def create_float_attribute(prim: Usd.Prim, attribute_name: str) -> Usd.Attribute
 
 def create_vector_attribute(prim: Usd.Prim, attribute_name: str) -> Usd.Attribute:
     """Creates attribute for a prim that holds a vector.
-    See: https://graphics.pixar.com/usd/release/api/class_usd_prim.html
+    See: https://openusd.org/release/api/class_usd_prim.html
     See: https://docs.omniverse.nvidia.com/kit/docs/omni.usd/latest/omni.usd.commands/omni.usd.commands.CreateUsdAttributeCommand.html
     Args:
         prim (Usd.Prim): A Prim for holding the attribute.

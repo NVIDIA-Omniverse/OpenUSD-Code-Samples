@@ -7,7 +7,7 @@ from pxr import Usd, UsdGeom, Gf
 def get_world_transform_cache(cache: UsdGeom.XformCache, prim: Usd.Prim) -> typing.Tuple[Gf.Vec3d, Gf.Rotation, Gf.Vec3d]:
     """
     Get the local transformation of a prim using UsdGeom.XformCache.
-    See: https://graphics.pixar.com/usd/release/api/class_usd_geom_xform_cache.html
+    See: https://openusd.org/release/api/class_usd_geom_xform_cache.html
     Args:
         cache: A cache, created for example as `UsdGeom.XformCache()`
         prim: The prim to calculate the world transformation.
