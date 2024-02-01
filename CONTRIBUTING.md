@@ -15,7 +15,7 @@
 
 - Avoid introducing unnecessary complexity into existing code so that maintainability and readability are preserved.
 
-- All development should happen against the "dev" branch of the repository. Please make sure the base branch of your pull request is set to the "dev" branch when filing your pull request.
+- All development should happen against the "main" branch of the repository. Please make sure the base branch of your pull request is set to the "main" branch when filing your pull request.
 
 - Try to keep pull requests (PRs) as concise as possible:
   - Avoid committing commented-out code.
@@ -55,10 +55,10 @@ Developer workflow for code contributions is as follows:
 git clone https://github.com/YOUR_USERNAME/YOUR_FORK.git OpenUSD-Code-Samples
   ```
 
-3. Create a branch off of the "dev" branch and commit changes. See [Coding Guidelines](#coding-guidelines) for commit formating rules.
+3. Create a branch off of the "main" branch and commit changes. See [Coding Guidelines](#coding-guidelines) for commit formatting rules.
 
 ```bash
-# Create a branch off of the "dev" branch
+# Create a branch off of the "main" branch
 git checkout -b <local-branch> <remote-branch>
 git add <path-to-files>
 # -s flag will "sign-off" on your commit, we require all contributors to sign-off on their commits. See below for more
@@ -73,7 +73,7 @@ git push -u origin <local-branch>:<remote-branch>
 
 5. Please make sure that your pull requests are clean. Use the rebase and squash git facilities as needed to ensure that the pull request is as clean as possible.
 
-6. Once the code changes are staged on the fork and ready for review, a [Pull Request](https://help.github.com/en/articles/about-pull-requests) (PR) can be [requested](https://help.github.com/en/articles/creating-a-pull-request) to merge the changes from your branch to the upstream "dev" branch.
+6. Once the code changes are staged on the fork and ready for review, a [Pull Request](https://help.github.com/en/articles/about-pull-requests) (PR) can be [requested](https://help.github.com/en/articles/creating-a-pull-request) to merge the changes from your branch to the upstream "main" branch.
     * Exercise caution when selecting the source and target branches for the PR.
     * Creation of a PR creation kicks off the code review process.
     * At least one OpenUSD Code Samples engineer will be assigned for the review.
