@@ -9,7 +9,7 @@ This repository uses [Poetry](https://python-poetry.org/docs/) for dependency ma
 1. Install any version of Python between versions 3.8-3.10 .
 1. [Install Poetry](https://python-poetry.org/docs/#installation)
 
-## How to Build
+## How to Build 
 1. `poetry install`
 1. `poetry run python build_docs.py`
 1. In a web browser, open `sphinx/_build/index.html`
