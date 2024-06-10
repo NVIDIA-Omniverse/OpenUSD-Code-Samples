@@ -1,0 +1,1 @@
+These snippets show how to attach a Material to a prim.

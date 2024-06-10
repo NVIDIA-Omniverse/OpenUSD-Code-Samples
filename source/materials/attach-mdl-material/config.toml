@@ -1,0 +1,6 @@
+[core]
+title = "Attach a UsdPreviewSurface Material to Mesh"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples for creating binding a UsdPreviewSurface material to a mesh."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "Omniverse Kit", "Kit Commands", "UsdPreviewSurface", "material", "CreatePreviewSurfaceMaterialPrim"]
