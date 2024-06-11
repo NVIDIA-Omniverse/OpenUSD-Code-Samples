@@ -1,10 +1,21 @@
 # SPDX-FileCopyrightText: Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-import omni
-from pxr import Sdf, UsdShade
 
-stage = omni.usd.get_context().get_stage()
+from pxr import UsdShade
+
+def bind_material(prim, mtl):
+    UsdShade.MaterialBindingAPI(prim).Bind(mtl)
+
+
+#############
+# Full Usage
+#############
+
+from pxr import Sdf
+
+stage = Usd.Stage.CreateInMemory()
+default_prim = UsdGeom.Xform.Define(stage, Sdf.Path("/World")).GetPrim()
 
 # Create a mesh plane from points and indices
 points = [(0, 0, 0), (1, 0, 0),  (1, 1, 0),  (0, 1, 0) ]
@@ -29,4 +40,5 @@ shader.CreateInput("ior", Sdf.ValueTypeNames.Float).Set(1.0)
 # Bind the material to the mesh
 mtl = UsdShade.Material.Define(stage, mtl_path)
 mtl.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(), "surface")
-UsdShade.MaterialBindingAPI(mesh).Bind(mtl)
+
+bind_material(mesh, mtl)
