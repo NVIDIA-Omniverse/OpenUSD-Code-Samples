@@ -40,7 +40,7 @@ Issue #<Issue Number> - <Commit Title>
 
   - If introducing a new component, such as a plugin, provide a test sample to verify the functionality.
 
-- Make sure that you can contribute your work to open source (no license and/or patent conflict is introduced by your code). You will need to [`sign`](#signing-your-work) your commit.
+- Make sure that you can contribute your work to open source (no license and/or patent conflict is introduced by your code). You will need to [`sign-off`](#signing-your-work) your commit.
 
 - Thanks in advance for your patience as we review your contributions; we do appreciate them!
 
@@ -87,6 +87,7 @@ git push -u origin <local-branch>:<remote-branch>
 * We require that all contributors "sign-off" on their commits. This certifies that the contribution is your original work, or you have rights to submit it under the same license, or a compatible license.
 
   * Any contribution which contains commits that are not Signed-Off will not be accepted.
+  * Note that "sign-off" is not the same as a "signed commit". "Signed-off-by" is a tag that is included in a commit message, and can be done through `-s` or inserting the text at the bottom of a commit message manually (see below). The flag `-S` is for a "signed commit", which is cryptographically identifiable. For more information on the differences, see [About commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification) and [About commit signoffs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository#about-commit-signoffs)
 
 * To sign off on a commit you simply use the `--signoff` (or `-s`) option when committing your changes:
   ```bash
