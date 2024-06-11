@@ -18,7 +18,7 @@ This repository uses [Poetry](https://python-poetry.org/docs/) for dependency ma
 Ideas for new code samples that could help other developers are always welcome. Please [create a new issue](https://github.com/NVIDIA-Omniverse/OpenUSD-Code-Samples/issues) requesting a new code sample and add the _new request_ label. Someone from the NVIDIA team or OpenUSD community will pick it up. If you can contribute it yourself, even better!
 
 ## Find a Typo or an Error?
-Please let us know if you find any mistakes or non-working code samples. [File an issue](https://github.com/NVIDIA-Omniverse/OpenUSD-Code-Samples/issues) with a _bug_ label to let us know and so we can address it.
+Please let us know if you find any mistakes or non-working code samples. [File an issue](https://github.com/NVIDIA-Omniverse/OpenUSD-Code-Samples/issues) with a comment that this is a bug.
 
 ## Contributing
 Contributions are welcome! If you would like to contribute, please read our [Contributing Guidelines](./CONTRIBUTING.md) to understand how to contribute. Also, check out the [Code Sample Guidelines](CODE-SAMPLE-GUIDELINES.md) to understand how code samples file and folders are structured in this repository and how to adhere to follow our code samples style.
