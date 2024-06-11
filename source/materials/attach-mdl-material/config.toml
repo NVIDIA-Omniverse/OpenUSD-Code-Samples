@@ -1,5 +1,5 @@
 [core]
-title = "Attach a UsdPreviewSurface Material to Mesh"
+title = "Assign a UsdPreviewSurface Material to Mesh"
 
 [metadata]
 description = "Universal Scene Description (OpenUSD) code samples for creating binding a UsdPreviewSurface material to a mesh."
