@@ -5,7 +5,10 @@
 from pxr import UsdShade
 
 def bind_material(prim, mtl):
-    UsdShade.MaterialBindingAPI(prim).Bind(mtl)
+    # Setup a MaterialBindingAPI on the mesh prim
+    bindingAPI = UsdShade.MaterialBindingAPI.Apply(prim)
+    # Use the constructed binding API to bind the material
+    bindingAPI.Bind(mtl)
 
 
 #############
@@ -41,4 +44,5 @@ shader.CreateInput("ior", Sdf.ValueTypeNames.Float).Set(1.0)
 mtl = UsdShade.Material.Define(stage, mtl_path)
 mtl.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(), "surface")
 
-bind_material(mesh, mtl)
+# Call our bind material function. Note that we are passing a prim, not a mesh.
+bind_material(mesh.GetPrim(), mtl)
