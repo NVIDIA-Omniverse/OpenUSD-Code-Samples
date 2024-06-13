@@ -15,7 +15,7 @@ This repository uses [Poetry](https://python-poetry.org/docs/) for dependency ma
 1. In a web browser, open `sphinx/_build/index.html`
 
 ## Have an Idea for a New Code Sample?
-Ideas for new code samples that could help other developers are always welcome. Please [create a new issue](https://github.com/NVIDIA-Omniverse/OpenUSD-Code-Samples/issues) requesting a new code sample and add the _new request_ label. Someone from the NVIDIA team or OpenUSD community will pick it up. If you can contribute it yourself, even better!
+Ideas for new code samples that could help other developers are always welcome. Please [create a new issue](https://github.com/NVIDIA-Omniverse/OpenUSD-Code-Samples/issues) requesting a new code sample and put [New Request] at the end of your title. Someone from the NVIDIA team or OpenUSD community will pick it up. If you can contribute it yourself, even better!
 
 ## Find a Typo or an Error?
 Please let us know if you find any mistakes or non-working code samples. [File an issue](https://github.com/NVIDIA-Omniverse/OpenUSD-Code-Samples/issues) with a comment that this is a bug.
