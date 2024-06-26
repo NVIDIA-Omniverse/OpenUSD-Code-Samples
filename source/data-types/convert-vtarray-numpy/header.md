@@ -1,4 +1,4 @@
-Some Attributes store array type data which are accessed using the VtArray classes. You can find a list of the VtArray classes in our [USD Data Types documentation](https://docs.omniverse.nvidia.com/dev-guide/latest/dev_usd/quick-start/usd-types.html) 
+Some Attributes store array type data which are accessed using the VtArray classes. You can find a list of the VtArray classes in the [Vt (Value Types) library module documentation](https://docs.omniverse.nvidia.com/kit/docs/pxr-usd-api/latest/pxr/Vt.html) 
 
 
 If you need to manipulate the arrays using Python, it is advantageous to use Numpy to benefit from it's speed and efficiency. These code samples show how you can convert between the VtArray objects and Numpy Array objects.
