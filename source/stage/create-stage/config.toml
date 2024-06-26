@@ -1,0 +1,6 @@
+[core]
+title = "Create a new Stage"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples for creating a new stage"
+keywords = ["OpenUSD", "USD", "Python", "code sample", "snippet", "stage", "create", "in-memory"]
