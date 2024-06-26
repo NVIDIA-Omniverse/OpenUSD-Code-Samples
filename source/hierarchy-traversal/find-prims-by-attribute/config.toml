@@ -1,0 +1,6 @@
+[core]
+title = "Find All the Prims of a Given Attribute"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples for finding all the Prims on a Stage with a certain attribute."
+keywords = ["OpenUSD", "USD", "Python", "code sample", "snippet", "prim", "Traverse", "Attribute"]
