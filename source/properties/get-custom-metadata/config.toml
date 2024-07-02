@@ -1,0 +1,6 @@
+[core]
+title = "Get Custom Metadata"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples for setting custom metadata."
+keywords = ["OpenUSD", "USD", "Python", "code sample", "snippet", "get", "custom", "metadata"]
