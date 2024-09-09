@@ -23,10 +23,11 @@ sphinx-rtd-theme = "1.0.0"
 toml = "0.10.2"
 
 # Pinned for security patches
-certifi = "2023.7.22"
+certifi = "2024.7.04"
 markdown-it-py = "2.2.0"
 pygments = "2.16.1"
-urllib3 = "1.26.18"
+urllib3 = "1.26.19"
+zipp = "3.19.1"
 
 [tool.poetry.dev-dependencies]
 [build-system]
