@@ -3,4 +3,4 @@ title = "Print or Export a Prim"
 
 [metadata]
 description = "Universal Scene Description (OpenUSD) code samples for printing or exporting a single prim from a stage."
-keywords = ["OpenUSD", "USD", "Python", "code sample", "prim", "get prim", "accessing", "IsValid", "valid"]
+keywords = ["OpenUSD", "USD", "Python", "code sample", "prim", "print prim", "export prim", "flatten prim"]
