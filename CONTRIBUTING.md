@@ -21,9 +21,9 @@
   - Avoid committing commented-out code.
   - Wherever possible, each PR should address a single concern. If there are several otherwise-unrelated things that should be fixed to reach a desired endpoint, our recommendation is to open several PRs and indicate the dependencies in the description. The more complex the changes are in a single PR, the more time it will take to review those changes.
 
-- Write commit titles using imperative mood and [these rules](https://chris.beams.io/posts/git-commit/), and reference the Issue number corresponding to the PR. Following is the recommended format for commit texts:
+- Write commit titles using imperative mood and [these rules](https://chris.beams.io/posts/git-commit/), and reference the Issue number that is being addressed. Following is the recommended format for commit texts:
 ```
-Issue #<Issue Number> - <Commit Title>
+<Commit Title>
 
 <Commit Body>
 ```
@@ -62,7 +62,7 @@ git clone https://github.com/YOUR_USERNAME/YOUR_FORK.git OpenUSD-Code-Samples
 git checkout -b <local-branch> <remote-branch>
 git add <path-to-files>
 # -s flag will "sign-off" on your commit, we require all contributors to sign-off on their commits. See below for more
-git commit -s -m "Issue #<Issue Number> - <Commit Title>"
+git commit -s -m "<Commit Title>"
 ```
 
 4. Push Changes to the personal fork.
@@ -75,6 +75,7 @@ git push -u origin <local-branch>:<remote-branch>
 
 6. Once the code changes are staged on the fork and ready for review, a [Pull Request](https://help.github.com/en/articles/about-pull-requests) (PR) can be [requested](https://help.github.com/en/articles/creating-a-pull-request) to merge the changes from your branch to the upstream "main" branch.
     * Exercise caution when selecting the source and target branches for the PR.
+    * If you haven't included a link to the Issue you are addressing in your commit message, add it now to the PR description.
     * Creation of a PR creation kicks off the code review process.
     * At least one OpenUSD Code Samples engineer will be assigned for the review.
     * While under review, mark your PRs as work-in-progress by prefixing the PR title with [WIP].
