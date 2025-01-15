@@ -11,7 +11,7 @@ def get_metadata(usd: Usd.Object, data_type: str = "customData", key: Any = None
             For example, Usd.Prim, Usd.Property
 
         data_type : Name of the metadata to be retrieved. 
-            customData is provided by USD as a dictionary-valued metadatum. No user config needed to use this
+            customData is provided by USD as a dictionary-valued metadatum. No user config needed to use this.
         
         key : Key to retrieve the value from the metadata dictionary. If not provided, will return the entire metadata dictionary.
     Return:
