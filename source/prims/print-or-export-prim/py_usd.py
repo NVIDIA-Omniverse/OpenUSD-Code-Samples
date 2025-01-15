@@ -13,13 +13,13 @@ def export_prim_to_layer(prim: Usd.Prim, flatten=True,
     Parameters
     ----------
     prim: Usd.Prim
-        The usd object we wish to export by itself into it's own layer
+        The usd object we wish to export by itself into its own layer
     flatten: bool
         If True, then the returned layer will have all composition arcs
         flattened. If False, then the returned layer will contain a reference
         to the original prim.
     include_session_layer: bool
-        If True, then include changes from the session layer.  If this is
+        If True, then include changes from the session layer. If this is
         False, and the prim is ONLY defined in the session layer, then None
         will be returned.
 
@@ -31,14 +31,14 @@ def export_prim_to_layer(prim: Usd.Prim, flatten=True,
     orig_root_layer = orig_stage.GetRootLayer()
     orig_session_layer = orig_stage.GetSessionLayer()
     if orig_session_layer and not include_session_layer:
-        # make sure that the prim still exists if we exclude the session layer
+        # Make sure that the prim still exists if we exclude the session layer
         stage_no_session = Usd.Stage.Open(orig_root_layer, sessionLayer=None)
         if not stage_no_session.GetPrimAtPath(prim.GetPrimPath()):
             return None
 
         orig_session_layer = None
 
-    # if there is a session layer, to get an EXACT copy including possible
+    # If there is a session layer, to get an EXACT copy including possible
     # modifications by the session layer, we need to create a new "copy" layer,
     # with a layer stack composed of the orig_stage's session layer
     # and root layer
@@ -49,7 +49,7 @@ def export_prim_to_layer(prim: Usd.Prim, flatten=True,
         copy_layer.subLayerPaths.append(orig_session_layer.identifier)
         copy_layer.subLayerPaths.append(orig_root_layer.identifier)
 
-    # now create a "solo" stage, with only our prim (from the copy layer)
+    # Now create a "solo" stage, with only our prim (from the copy layer)
     # referenced in
     solo_stage = Usd.Stage.CreateInMemory()
     solo_prim_path = Sdf.Path(f"/{prim.GetName()}")
@@ -78,7 +78,7 @@ def export_prim_to_string(prim: Usd.Prim, flatten=True,
         flattened. If False, then return the prim definition from the
         strongest composition arc that contributes opinions to this prim.
     include_session_layer: bool
-        If True, then include changes from the session layer.  If this is
+        If True, then include changes from the session layer. If this is
         False, and the prim is ONLY defined in the session layer, then None
         will be returned.
 
@@ -100,7 +100,7 @@ def export_prim_to_string(prim: Usd.Prim, flatten=True,
     solo_layer = export_prim_to_layer(
         prim, flatten=True, include_session_layer=include_session_layer)
     if solo_layer is None:
-        # if include_session_layer was False, it's possible that the prim
+        # If include_session_layer was False, it's possible that the prim
         # doesn't exist any more...
         return None
     solo_primspec = solo_layer.GetPrimAtPath(solo_layer.defaultPrim)
@@ -120,7 +120,7 @@ def print_prim(prim: Usd.Prim, flatten=True, include_session_layer=True):
         flattened. If False, then print the prim definition from the
         strongest composition arc that contributes opinions to this prim.
     include_session_layer: bool
-        If True, then include changes from the session layer.  If this is
+        If True, then include changes from the session layer. If this is
         False, and the prim is ONLY defined in the session layer, then 'None'
         will be printed.
 
