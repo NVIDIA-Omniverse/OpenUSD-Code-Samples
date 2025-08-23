@@ -6,7 +6,7 @@ from pxr import Vt
 
 
 def convert_vt_to_np(my_array: Vt.Vec3fArray) -> numpy.ndarray:
-    return numpy.array(my_vec3_array)
+    return numpy.array(my_array)
 
 
 #############
