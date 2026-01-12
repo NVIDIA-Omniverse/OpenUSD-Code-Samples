@@ -5,13 +5,13 @@
 This repository contains useful Universal Scene Description (OpenUSD) code samples in Python, C++, and USDA. If you want to browse the code samples to use them, you can see them fully rendered in the [OpenUSD Code Samples documentation](https://docs.omniverse.nvidia.com/dev-guide/latest/programmer_ref/usd.html) page.
 
 ## Configuration
-This repository uses [Poetry](https://python-poetry.org/docs/) for dependency management. If you're new to Poetry, you don't need to know much more than the commands we use in the [build instructions](#How-to-Build). To make it easier when authoring code samples and contributing, we recommend installing:
+This repository uses [uv](https://docs.astral.sh/uv/) for dependency management. If you're new to uv, you don't need to know much more than the commands we use in the [build instructions](#How-to-Build). To make it easier when authoring code samples and contributing, we recommend installing:
 1. Install any version of Python between versions 3.8-3.10 .
-1. [Install Poetry](https://python-poetry.org/docs/#installation)
+1. [Install uv](https://docs.astral.sh/uv/getting-started/installation/)
 
 ## How to Build
-1. `poetry install`
-1. `poetry run python build_docs.py`
+1. `uv sync`
+1. `uv run python build_docs.py`
 1. In a web browser, open `sphinx/_build/index.html`
 
 ## Have an Idea for a New Code Sample?

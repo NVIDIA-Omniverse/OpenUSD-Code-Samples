@@ -21,7 +21,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'USD Code Samples'
-copyright = '2023, NVIDIA'
+copyright = '2026, NVIDIA'
 author = 'NVIDIA'
 
 

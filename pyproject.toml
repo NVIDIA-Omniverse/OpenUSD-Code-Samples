@@ -1,36 +1,27 @@
-[tool.poetry]
+[project]
 name = "openusd-code-samples"
-version = "1.2.0"
+version = "1.3.0"
 description = "Universal Scene Description (OpenUSD) code samples in Python, C++, and USDA for common development features and tasks."
-license = "Apache-2.0"
+license = {text = "Apache-2.0"}
 authors = []
 readme = "README.md"
-packages = [{include = "source"}]
+requires-python = ">=3.8, <3.11"
+dependencies = [
+    "myst-parser>=3.0.1",
+    "numpy>=1.24.1",
+    "rstcloth>=0.6.0",
+    "sphinx>=7.1.2",
+    "sphinx-design>=0.5.0",
+    "sphinx-rtd-theme>=3.1.0",
+    "toml==0.10.2",
+    "types-usd>=24.5.2",
+    "usd-core>=25.11",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.8, <3.11"
-numpy = "1.24.1"
-usd-core = "23.5"
-types-usd = "~23.5.4"
-
-
-[tool.poetry.group.docs.dependencies]
-myst-parser = "0.18.0"
-rstcloth = "0.5.4"
-Sphinx = "4.5.0"
-sphinx-design = "0.2.0"
-sphinx-rtd-theme = "1.0.0"
-toml = "0.10.2"
-
-# Pinned for security patches
-certifi = "2024.7.04"
-markdown-it-py = "2.2.0"
-pygments = "2.16.1"
-urllib3 = "1.26.19"
-zipp = "3.19.1"
-jinja2 = "3.1.5"
-
-[tool.poetry.dev-dependencies]
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["source"]
+
