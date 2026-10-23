@@ -1,0 +1,6 @@
+[core]
+title = "Get the Visibility of a Prim"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code sample that computes a prim's visibility, including visibility inherited from its ancestors."
+keywords = ["OpenUSD", "USD", "Python", "visibility", "inherited", "invisible", "ComputeVisibility"]

@@ -31,7 +31,9 @@ def hide_prim(stage: Usd.Stage, prim_path: str):
 
 
 def show_prim(stage: Usd.Stage, prim_path: str):
-    """Show a prim
+    """Allow a prim to inherit visibility from its ancestors.
+
+    The prim remains invisible if an ancestor is invisible.
 
     Args:
         stage (Usd.Stage, required): The USD Stage
@@ -57,13 +59,16 @@ stage.SetDefaultPrim(default_prim.GetPrim())
 cube_path = default_prim_path.AppendPath("Cube")
 cube = UsdGeom.Cube.Define(stage, cube_path)
 
-# The prim is initially visible. Assert so and then demonstrate how to toggle
-# it off and on
+# Neither the cube nor its ancestors is invisible. Check both the attribute
+# and computed visibility, then demonstrate how to toggle visibility.
 assert get_visibility_attribute(stage, cube_path).Get() == "inherited"
+assert cube.ComputeVisibility() == UsdGeom.Tokens.inherited
 hide_prim(stage, cube_path)
 assert get_visibility_attribute(stage, cube_path).Get() == "invisible"
+assert cube.ComputeVisibility() == UsdGeom.Tokens.invisible
 show_prim(stage, cube_path)
 assert get_visibility_attribute(stage, cube_path).Get() == "inherited"
+assert cube.ComputeVisibility() == UsdGeom.Tokens.inherited
 
 # Print the USDA out
 usda = stage.GetRootLayer().ExportToString()
