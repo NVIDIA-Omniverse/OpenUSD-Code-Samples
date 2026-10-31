@@ -2,5 +2,5 @@
 title = "Create a UsdPreviewSurface Material"
 
 [metadata]
-description = "Universal Scene Description (OpenUSD) code samples for creating a UsdPreviewSurface material including UsdUVTexture Shader for loading data from textures."
-keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "Omniverse Kit", "Kit Commands", "UsdPreviewSurface", "material", "CreatePreviewSurfaceMaterialPrim", "UsdUVTexture"]
+description = "Universal Scene Description (OpenUSD) code samples for creating a UsdPreviewSurface material including UsdUVTexture, UsdPrimvarReader_float2 and UsdTransform2d Shaders for loading data from textures."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "Omniverse Kit", "Kit Commands", "UsdPreviewSurface", "material", "CreatePreviewSurfaceMaterialPrim", "UsdUVTexture", "UsdPrimvarReader_float2", "UsdTransform2d", "UV", "texture coordinates", "st", "primvar"]
