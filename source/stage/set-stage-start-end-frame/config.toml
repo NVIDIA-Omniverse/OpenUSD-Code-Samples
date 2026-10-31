@@ -1,0 +1,6 @@
+[core]
+title = "Set the Stage Start and End Frame"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples for setting the start and end frame (time code range) of a Stage."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "stage", "metadata", "startTimeCode", "endTimeCode", "frame range", "animation", "time code"]
