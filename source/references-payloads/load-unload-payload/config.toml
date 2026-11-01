@@ -1,0 +1,6 @@
+[core]
+title = "Load or Unload a Payload"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples for loading and unloading the Payloads of prims on a Stage."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "payload", "load", "unload", "Load", "Unload", "LoadAndUnload", "FindLoadable", "LoadNone", "LoadWithoutDescendants"]
