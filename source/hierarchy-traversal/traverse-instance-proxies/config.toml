@@ -1,0 +1,6 @@
+[core]
+title = "Traverse a Stage Including Instanced Prims"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples for traversing a Stage or the descendants of a prim, including the children of instanced prims (instance proxies)."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "traverse", "traversal", "hierarchy", "instancing", "instanceable", "instance proxy", "reference", "PrimRange", "TraverseInstanceProxies", "PrimAllPrimsPredicate"]
