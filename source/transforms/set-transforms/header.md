@@ -1,0 +1,5 @@
+A prim's transform is stored as an ordered list of [transform operations](https://openusd.org/release/api/class_usd_geom_xform_op.html) (`xformOp`s) relative to its parent. The simplest way to set a prim's translation, rotation, and scale is [UsdGeom.XformCommonAPI](https://openusd.org/release/api/class_usd_geom_xform_common_a_p_i.html), which authors a standard set of operations that most applications can read and that you can update as many times as you need. To read transforms back, see [Get the Local Space Transforms for a Prim](get-local-transforms) and [Get the World Space Transforms for a Prim](get-world-transforms).
+
+```{warning}
+`UsdGeom.XformCommonAPI` only works with prims whose operations it can represent. If a prim already uses other operations, such as a single matrix (`xformOp:transform`), its setters return `False` and author nothing, so check the result. Also, the `UsdGeom.Xformable.Add*Op()` methods add a new operation: calling `AddTranslateOp()` on a prim that already has a translate operation is an error. To change an existing operation, get it with `GetOrderedXformOps()` and set its value, or use `UsdGeom.XformCommonAPI`.
+```
