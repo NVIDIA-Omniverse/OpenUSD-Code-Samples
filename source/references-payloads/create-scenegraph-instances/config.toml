@@ -1,0 +1,6 @@
+[core]
+title = "Create Scenegraph Instances"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples for creating scenegraph instances: lightweight, read-only copies of a prim that share a prototype."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "instance", "instancing", "instanceable", "SetInstanceable", "prototype", "GetPrototype", "reference", "copy"]

@@ -42,9 +42,10 @@ stage.SetDefaultPrim(default_prim.GetPrim())
 # Create a xform which should hold all references in this sample
 ref_prim: Usd.Prim = UsdGeom.Xform.Define(stage, Sdf.Path("/World/ref_prim")).GetPrim()
 
-# Add an internal reference
+# Add an internal reference to a prim with a child Cube
 intern_target_path: Sdf.Path = Sdf.Path("/World/intern_target")
 target_prim: Usd.Prim = UsdGeom.Xform.Define(stage, intern_target_path).GetPrim()
+UsdGeom.Cube.Define(stage, intern_target_path.AppendChild("Cube"))
 add_int_reference(ref_prim, intern_target_path)
 
 # Add an external reference to specific prim
@@ -64,5 +65,8 @@ for prim_spec in ref_prim.GetPrimStack():
 # Check that the reference prim was created and that the references are correct
 assert ref_prim.IsValid()
 assert references[0] == Sdf.Reference(primPath=intern_target_path)
+
+# The referenced prim's contents are composed under the referencing prim
+assert ref_prim.GetPrimAtPath("Cube").IsA(UsdGeom.Cube)
 assert references[1] == Sdf.Reference(assetPath="C:/path/to/file.usd", primPath=Sdf.Path("/World/some/target"))
 assert references[2] == Sdf.Reference(assetPath="C:/path/to/other/file.usd")
