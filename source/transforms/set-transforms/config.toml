@@ -1,0 +1,6 @@
+[core]
+title = "Set the Transforms for a Prim"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples showing how to set the translation, rotation, and scale of a prim, set its transform from a matrix, or place it at a world space transform."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "transforms", "set transform", "translate", "rotate", "scale", "move", "XformCommonAPI", "xformOp", "MakeMatrixXform", "world space", "ComputeParentToWorldTransform"]
