@@ -1,14 +1,17 @@
 # SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+from typing import Optional
 from pxr import Usd, Sdf
 
-def add_payload(prim: Usd.Prim, payload_asset_path: str, payload_target_path: Sdf.Path) -> None:
+def add_payload(prim: Usd.Prim, payload_asset_path: str, payload_target_path: Optional[Sdf.Path] = None) -> None:
     payloads: Usd.Payloads = prim.GetPayloads()
-    payloads.AddPayload(
-        assetPath=payload_asset_path,
-        primPath=payload_target_path # OPTIONAL: Payload a specific target prim. Otherwise, uses the payloadd layer's defaultPrim.
-    )
+    if payload_target_path is None:
+        # Payload the payloaded layer's defaultPrim
+        payloads.AddPayload(assetPath=payload_asset_path)
+    else:
+        # Payload a specific target prim
+        payloads.AddPayload(assetPath=payload_asset_path, primPath=payload_target_path)
 
 
 #############
@@ -27,10 +30,10 @@ stage.SetDefaultPrim(default_prim.GetPrim())
 payload_prim: Usd.Prim = UsdGeom.Xform.Define(stage, Sdf.Path("/World/payload_prim")).GetPrim()
 
 # Add an external payload
-add_payload(payload_prim, "C:/path/to/file.usd", Sdf.Path("/World/some/target"))
+add_payload(payload_prim, "C:/path/to/file.usd", payload_target_path=Sdf.Path("/World/some/target"))
 
 # Add other external payload to default prim
-add_payload(payload_prim, "C:/path/to/other/file.usd", Sdf.Path.emptyPath)
+add_payload(payload_prim, "C:/path/to/other/file.usd")
 
 usda = stage.GetRootLayer().ExportToString()
 print(usda)

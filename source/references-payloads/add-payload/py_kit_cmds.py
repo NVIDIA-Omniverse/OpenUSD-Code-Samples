@@ -1,16 +1,18 @@
 # SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+from typing import Optional
 import omni.kit.commands
 from pxr import Usd, Sdf
 
-def add_payload(prim: Usd.Prim, payload_asset_path: str, payload_target_path: Sdf.Path) -> None:
+def add_payload(prim: Usd.Prim, payload_asset_path: str, payload_target_path: Optional[Sdf.Path] = None) -> None:
     omni.kit.commands.execute("AddPayload",
         stage=prim.GetStage(),
         prim_path = prim.GetPath(), # an existing prim to add the payload to.
         payload=Sdf.Payload(
             assetPath = payload_asset_path,
-            primPath = payload_target_path
+            # An empty primPath payloads the payloaded layer's defaultPrim
+            primPath = payload_target_path if payload_target_path is not None else Sdf.Path.emptyPath
         )
     )
 
@@ -34,10 +36,10 @@ stage.SetDefaultPrim(default_prim.GetPrim())
 payload_prim: Usd.Prim = UsdGeom.Xform.Define(stage, Sdf.Path("/World/payload_prim")).GetPrim()
 
 # Add an payload specific prim
-add_payload(payload_prim, "C:/path/to/file.usd", Sdf.Path("/World/some/target"))
+add_payload(payload_prim, "C:/path/to/file.usd", payload_target_path=Sdf.Path("/World/some/target"))
 
 # Add other payload to default prim
-add_payload(payload_prim, "C:/path/to/other/file.usd", Sdf.Path.emptyPath)
+add_payload(payload_prim, "C:/path/to/other/file.usd")
 
 usda = stage.GetRootLayer().ExportToString()
 print(usda)
