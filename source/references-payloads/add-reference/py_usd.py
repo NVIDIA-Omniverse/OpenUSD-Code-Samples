@@ -1,18 +1,21 @@
 # SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+from typing import Optional
 from pxr import Usd, Sdf
 
 def add_int_reference(prim: Usd.Prim, ref_target_path: Sdf.Path) -> None:
     references: Usd.References = prim.GetReferences()
     references.AddInternalReference(ref_target_path)
 
-def add_ext_reference(prim: Usd.Prim, ref_asset_path: str, ref_target_path: Sdf.Path) -> None:
+def add_ext_reference(prim: Usd.Prim, ref_asset_path: str, ref_target_path: Optional[Sdf.Path] = None) -> None:
     references: Usd.References = prim.GetReferences()
-    references.AddReference(
-        assetPath=ref_asset_path,
-        primPath=ref_target_path # OPTIONAL: Reference a specific target prim. Otherwise, uses the referenced layer's defaultPrim.
-    )
+    if ref_target_path is None:
+        # Reference the referenced layer's defaultPrim
+        references.AddReference(assetPath=ref_asset_path)
+    else:
+        # Reference a specific target prim
+        references.AddReference(assetPath=ref_asset_path, primPath=ref_target_path)
 
 
 #############
@@ -36,10 +39,10 @@ target_prim: Usd.Prim = UsdGeom.Xform.Define(stage, intern_target_path).GetPrim(
 add_int_reference(ref_prim, intern_target_path)
 
 # Add an external reference to specific prim
-add_ext_reference(ref_prim, "C:/path/to/file.usd", Sdf.Path("/World/some/target"))
+add_ext_reference(ref_prim, "C:/path/to/file.usd", ref_target_path=Sdf.Path("/World/some/target"))
 
 # Add other external reference to default prim
-add_ext_reference(ref_prim, "C:/path/to/other/file.usd", Sdf.Path.emptyPath)
+add_ext_reference(ref_prim, "C:/path/to/other/file.usd")
 
 usda = stage.GetRootLayer().ExportToString()
 print(usda)
