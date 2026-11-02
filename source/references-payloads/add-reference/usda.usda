@@ -17,5 +17,8 @@ def Xform "World"
 
     def Xform "intern_target"
     {
+        def Cube "Cube"
+        {
+        }
     }
 }

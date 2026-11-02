@@ -1,0 +1,6 @@
+[core]
+title = "Copy a Prim"
+
+[metadata]
+description = "Universal Scene Description (OpenUSD) code samples for copying (duplicating) a prim and its descendants to a new path."
+keywords = ["OpenUSD", "USD", "Python", "snippet", "code sample", "prim", "copy", "duplicate", "clone", "CopySpec", "Flatten", "layer"]
