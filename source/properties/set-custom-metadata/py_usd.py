@@ -42,8 +42,9 @@ print(my_int_value)
 print(my_string_value)
 
 # Check whether found data is correct
-assert cust_data == my_dict
-assert len(cust_data.keys()) == 2
+# The composed customData also holds fallback entries from the prim's schema
+# (for example "userDocBrief" on an Xform), so compare only what was authored.
+assert xform_prim.GetAllAuthoredMetadata()["customData"] == my_dict
 assert cust_data["my_int"] == 3
 assert cust_data["my_string"] == "I love OpenUSD!"
 assert cust_data == xform_prim.GetCustomData() # Alternative way to get custom data
